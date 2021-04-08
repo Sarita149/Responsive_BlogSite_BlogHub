@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './allComponants/home/home.component';
-import { NavbarComponent } from './allComponents/navbar/navbar.component';
+import { HomeComponent } from './allComponents/home/home.component';
+import { NavbarComponent } from './allComponents/landing-page/landingPage_navbar/navbar.component';
+import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
