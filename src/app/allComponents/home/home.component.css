@@ -1,28 +1,37 @@
-/* -----------------Global Classes---------------------- */
-
-
-/*# --------x-------Global Classes--------x------------- */
-.nav .brand .logo{
-    /* color: burlywood; */
-    color: sandybrown;
-    font-size: 50px;
-    font-weight:900;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+*{
+    /* padding: 0;
+    margin: 0; */
 }
-ul{
-    margin-left: 150px; 
+h1,span,p,a{
+    color: aliceblue;
 }
-li{
-    text-align: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    /* background-color: tomato; */
+.container .site-content .posts{
+    display: grid;
+    grid-template-columns: 70% 30% ;
+}   
+.posts .post-content{
+    width: 100%;
+}
+.posts .post-content .menu .features{
+    background-color: aliceblue;
+    /* margin-left: 50px; */
+}
+.menu .features ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* text-decoration: none; */
+    margin: 30px;
+}
+@media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+}
+.posts .post-content .blogone{
+    margin-bottom: 5rem;
+}
+.posts .sidebar{
 
 }
-/* .nav-link{
-    color: beige;
-} */
-ul li a:hover {
-    background-color:black;
-    border-radius: 5px;
-  }

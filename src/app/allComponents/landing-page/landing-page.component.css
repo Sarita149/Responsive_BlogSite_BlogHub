@@ -6,7 +6,7 @@ body{
 .secone{
     width: 100%;
     height: 95vh;
-    background: linear-gradient(rgba(0,0,0,0.5),#1190c2), url(../../../assets/index.jpg);
+    background: linear-gradient(rgba(0,0,0,0.4),#54bae2), url(../../../assets/index.jpg);
     background-size: cover;
     background-position:center;
     /* display: flex; */

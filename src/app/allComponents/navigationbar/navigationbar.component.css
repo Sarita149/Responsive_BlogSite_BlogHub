@@ -1,0 +1,29 @@
+/* -----------------Global Classes---------------------- */
+
+
+/*# --------x-------Global Classes--------x------------- */
+
+.nav .brand .logo{
+    /* color: burlywood; */
+    color: sandybrown;
+    font-size: 50px;
+    font-weight:900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+ul{
+    margin-left: 150px; 
+}
+li{
+    text-align: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* background-color: tomato; */
+
+}
+/* .nav-link{
+    color: beige;
+} */
+ul li a:hover {
+    background-color:black;
+    border-radius: 5px;
+  }
