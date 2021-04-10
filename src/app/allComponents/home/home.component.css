@@ -2,6 +2,11 @@
     /* padding: 0;
     margin: 0; */
 }
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 h1,a,p{
     color: aliceblue;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -24,6 +29,12 @@ h1,a,p{
     flex-wrap: wrap;
     justify-content: center;
     margin: 30px;
+}
+@media only screen and(max-width: 500px) {
+    .site-content .posts .post-content .menu {
+      flex-direction: column;
+      background: black;
+    }
 }
 .site-content .posts .post-content>.post-img,.post-title{
     padding-top: 2rem ;
@@ -66,15 +77,10 @@ h1,a,p{
     padding: 1rem 1.5rem;
     background: skyblue;
 }
+.post-content .Page-navigation .pagination{
+    justify-content: center;
+    background: black;
+}
+/* .posts .sidebar{
 
-@media (max-width: 800px) {
-    .flex-container {
-      flex-direction: column;
-    }
-}
-.posts .post-content .blogone{
-    margin-bottom: 5rem;
-}
-.posts .sidebar{
-
-}
+} */
