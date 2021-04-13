@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
+  isCollapsable:boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -19,4 +21,8 @@ export class LandingPageComponent implements OnInit {
   forLogin(){
     this.router.navigate(['home']);
   }
+
+  // changeCollapse(){
+  //   this.isCollapsable = !this.isCollapsable;
+  // }
 }

@@ -3,6 +3,30 @@ body{
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+@media screen and (max-width: 700px) {
+    .nav{
+        display: none;
+    }
+    .sectwo{
+        display: none;
+        /* width: 100%;
+        padding-left: 5rem;
+        display: flex;
+        flex-direction: column; */
+    }
+    /* .sectwo .two .img{
+        padding-top: 1rem;
+        width: 50%;
+    }
+    .sectwo .two .info{
+        width: 50%; 
+        background: chartreuse;
+    } */
+    .secthree .on{
+        flex-wrap: wrap;
+    }
+    
+}
 .secone{
     width: 100%;
     height: 95vh;
@@ -21,11 +45,6 @@ body{
 }
 .secone .third{
     height: 20%;
-}
-.secone .two h1{
-    font-size: 100px;
-    font-weight:900;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .secone .two form table tr td .bttns .bt1{
     background-color: rgb(68, 174, 216);
@@ -52,13 +71,27 @@ body{
     color: white;
     font-weight: 600;
 }
-
-.secthree{
+.sectwo .two {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.sectwo .two .info{
+    width: 50%; 
+    text-align: center;
+    padding: 1rem;
+    /* margin: 0rem 32rem; */
+}
+.secthree {
     width: 100%;
     height: 100vh;
     background:url("../../../assets/3.jpg");
     background-size: cover;
     background-position:center;
+}
+.secthree .on{
+    margin-left: 5rem;
+    padding-top: 4rem;
     display: flex;
     flex-direction: row;
 }
@@ -99,23 +132,38 @@ body{
     height: 120vh;
     background: #ff8533
 }
+
 .secfive .centerdiv .one{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items:flex-end;
+    margin-bottom: 20px;
 }
-.secfive .centerdiv .one a{
+.secfive .centerdiv .one ul li{
     height: 100px;
     width: 100px;
     background-color: #f5f6fa;
     border-radius: 50px;
     text-align: center;
     margin: 10px;
-    line-height: 110px;
+    line-height: 60px;
 
 }
-.secfive .centerdiv .iconsname{
+.secfive .centerdiv ul li span{
+    font-size: 22px;
+    color: aliceblue;
+    font-weight: 600;
+    
+}
+.secfive .centerdiv ul li a{
+    text-decoration: none;
+    /* align-items: center; */
+}
+.secfive .centerdiv ul li a i{
+    margin-top:25px;
+}
+/* .secfive .centerdiv .iconsname{
     width: 100%;
     margin: 0;
     padding: 0;
@@ -125,22 +173,28 @@ body{
     text-align: left;
     display: inline;
     margin-left:100px ;
-    /* marginpx; */
-    /* line-height: 10px; */
+    marginpx; */
+    /* line-height: 10px;
 
-}
+} */
 .secfive .centerdiv .two{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: top;
 }
-.secfive .centerdiv .two a{
+.secfive .centerdiv ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+}
+.secfive .centerdiv .two ul li {
     height: 100px;
     width: 100px;
     background-color: #f5f6fa;
     border-radius: 50px;
     text-align: center;
     margin: 10px;
-    line-height: 110px;
+    line-height: 60px;
 }

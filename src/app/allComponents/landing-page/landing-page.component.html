@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar class="nav"></app-navbar>
 <div class="wrap">
     <section class="secone">
         <div class="one"></div>
@@ -29,86 +29,99 @@
             <h3>What is Bloghub?</h3>
         </div>
         <div class="two ">
-            <form>
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="width: 30%;">
-                        </td>
-                        <td style="width: 30%;">
-                            <img class="animate__animated animate__zoomIn" src="../../../assets/2.jpg" width="100%" height="250px" style="border-radius: 50%;animation-delay: 2s;">
-                        </td>
-                        <td style="width: 30%;"></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%;">
-                        </td>
-                        <td style="width: 30%;">
-                            <div class="animate__animated animate__fadeInUp" style="animation-delay: 2s;">
-                                <h1 style="color: white; font-weight:400; font-size: 40px; padding-top: 10px; text-align: left;">Bloghub is so easy to use that it’s hard to explain.</h1>
-                                 <h3 style="color: white; font-weight: 300; font-size: 20px;text-align: left; line-height: 30px;">We made it really, really simple for people to make a blog and put whatever they want on it.
-                                  Stories, photos, GIFs, TV shows, links, quips, dumb jokes, smart jokes, Spotify tracks, mp3s,
-                                 videos, fashion, art, deep stuff.</h3>
-                            </div>
-                        </td>
-                        <td style="width: 30%;"></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <div class="one" ></div>
+            <div class="img" style="width: 30%;">
+                <img class="animate__animated animate__zoomIn" src="../../../assets/2.jpg" width="100%" height="250px" style="border-radius: 50%;animation-delay: 2s;">
+            </div>            
+            <div class="animate__animated animate__fadeInUp info" style="animation-delay: 2s;">
+                <h1 style="color: white; font-weight:400; font-size: 40px; padding-top: 10px; text-align: left;">Bloghub is so easy to use that it’s hard to explain.</h1>
+                <h3 style="color: white; font-weight: 300; font-size: 20px;text-align: left; line-height: 30px;">We made it really, really simple for people to make a blog and put whatever they want on it.
+                    Stories, photos, GIFs, TV shows, links, quips, dumb jokes, smart jokes, Spotify tracks, mp3s,
+                    videos, fashion, art, deep stuff.</h3>
+            </div>
+        </div>          
     </section>
     <section class="secthree" style="width: 100%;">
-        <div class="one" style="width: 20%; margin: 10px;"></div>
-        <div class="two" style="width: 40%; margin: 100px; padding-top: 50px;" >
+        <div class="on">
+        <div class="two" style="width: 40%; margin-left: 0rem; padding-top: 0rem;" >
             <h1 style="padding-bottom: 10px;">Choose the perfect design</h1>
             <h5 style="line-height: 30px;">Create a beautiful blog that fits your style. Choose from a selection of easy-to-use templates – all with flexible layouts and hundreds of background images – or design something
                new.
             </h5>
         </div>
-        <div class="three" style=" width: 50%;margin: 70px; padding-right: 100px;">
+        <div class="three" style=" width: 50%;margin: 0px;padding-top: rem;">
             <img src="../../../assets/4.jpg" alt=""  width="50%" height="300px;">
         </div>
+    </div>
     </section>
     <section class="secfive">
         <div class="centerdiv">
-            <div class="one animate__animated animate__bounceInRight" style="width: 100%; height: 50vh; animation-delay: 5s;">
-                <a href="">
-                    <i class="fab fa-2x fa-font"></i>
-                </a>
-                <a href="">
-                    <i class="fab fa-2x fa-camera"></i>
-                </a>
-                <a href="">
-                    <i class="fab fa-2x fa-quote-right"></i>
-                </a>
-                <a href="">
-                    <i class="fab fa-link"></i>
-                </a>
+            <div class="one animate__animated animate__bounceInLeft" style="width: 100%; height: 50vh; animation-delay: 1s;">
+                <ul>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-3x fa-file-text" aria-hidden="true"></i>
+                        </a><br>
+                        <span>Text</span>
+                    </li>
+                    <li>
+                        <a href="">
+                        <i class="fa fa-3x fa-camera" aria-hidden="true"></i>
+                        </a><br>
+                        <span>Camera</span>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-3x fa-quote-right"></i>
+                        </a><br>
+                        <span>Quote</span>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-3x fa-link"></i>
+                        </a>
+                        <!-- <a href="">
+                            <i class="fa fa-3x fa-link" [ngClass]="{'navbar':isCollapsable==false}"></i>
+                        </a>// "node_modules/bootstrap/dist/css/bootstrap.min.css",-->
+                        <br> 
+                        <span>Link</span>
+                    </li>
+                </ul>
             </div>
-            <div class="iconsname animate__animated animate__bounceInLeft" style="display: flex; justify-content: center; animation-delay: 5s;">
+            <!-- <div class="iconsname animate__animated animate__bounceInLeft" style="display: flex; justify-content: center; animation-delay: 5s;">
                 <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Text</h4>
                 <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Photo</h4>
                 <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Quote</h4>
                 <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Link</h4>
 
-                <!-- <p style="color: azure; margin-left:10px; margin-right: 10px;">Text</p> -->
+                 <p style="color: azure; margin-left:10px; margin-right: 10px;">Text</p>
+            </div> -->
+            <div class="two animate__animated animate__bounceInRight" style="width: 100%; height: 15vh; animation-delay: 1s;"> 
+                <ul>
+                    <li>
+                        <a href=""><i class="fa fa-3x fa-headphones" aria-hidden="true"></i></a><br>
+                        <span>Audio</span>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-3x fa-comments" aria-hidden="true"></i>
+                        </a><br>
+                        <span>Chat</span>
+                    </li>
+                    
+                    <li>
+                        <a href="">
+                            <i class="fa fa-3x fa-video-camera" aria-hidden="true"></i>
+                        </a><br>
+                        <span>Video</span>
+
+                    </li>
+                </ul>
             </div>
-            <div class="two animate__animated animate__bounceInRight" style="width: 100%; height: 15vh; animation-delay: 5s;"> 
-                <a href="">
-                    <i class="fas fa-2x fa-font"></i>
-                </a>
-                <a href="">
-                    <i class="fas fa-2x fa-camera"></i>
-                </a>
-                <a href="">
-                    <i class="fas fa-2x fa-quote-right"></i>
-                </a>
-            </div>
-            <div class="iconsname animate__animated animate__bounceInLeft" style="display: flex; justify-content: center; animation-delay: 5s;">
+            <!-- <div class="iconsname animate__animated animate__bounceInLeft" style="display: flex; justify-content: center; animation-delay: 5s;">
             <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Chat</h4>
             <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Audio</h4>
             <h4 style="color: azure; margin-left:10px; margin-right: 10px;">Video</h4>
-            </div>
+            </div> -->
             <div class="iconsname" style="display: block; justify-content: center;">
                 <h1 style="font-family: poppins; color: white; font-weight: 900; text-align: center; padding-top: 25px;">Seriously, put anything you want here.</h1>
                 <h5  style="font-family: poppins; color: white; font-weight: 400; text-align: center; line-height: 25px; font-size: 22px;">Seven post types to get you started. Your brain can do the rest. This thing is yours. Use it however you like.</h5>

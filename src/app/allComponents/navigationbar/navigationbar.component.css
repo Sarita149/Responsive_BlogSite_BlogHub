@@ -3,12 +3,19 @@
 
 /*# --------x-------Global Classes--------x------------- */
 
+.nav{
+    position:relative;
+    width: 100%;
+    background:rgba(0,25,53);
+}
+
 .nav .brand .logo{
     /* color: burlywood; */
     color: sandybrown;
     font-size: 50px;
     font-weight:900;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 ul{
     margin-left: 150px; 

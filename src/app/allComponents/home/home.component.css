@@ -1,8 +1,8 @@
 *{
-    /* padding: 0;
-    margin: 0; */
+    padding: 0;
+    margin: 0;
 }
-.flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,47 +11,80 @@ h1,a,p{
     color: aliceblue;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-.container .site-content .posts{
+.contain .site-content{
+    width: 100%;
+}
+.contain .site-content .posts{
     display: grid;
     grid-template-columns: 70% 30% ;
+    margin: 0rem 5rem 0rem 5rem;
 }   
 .site-content .posts .post-content{
     width: 100%;
     margin-bottom: 5rem;
 }
+
+/* -----------------------------------------------main menu----------------------------------------------- */
 .site-content .posts .post-content .menu{
-    height: 5%;
+    height: 2%;
     background-color: aliceblue;
+    margin: 0rem 1rem;
 }
 .site-content .posts .post-content .menu .features ul{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    position: relative;
     margin: 30px;
+    padding: 0;
+    list-style-type:none;
 }
-@media only screen and(max-width: 500px) {
-    .site-content .posts .post-content .menu {
-      flex-direction: column;
-      background: black;
+.posts .post-content .menu .features ul li{
+    margin-top: 30px;
+}
+.menu .features ul li span{
+    font-size: 20px;
+    text-align: justify;
+}
+@media screen and (max-width: 700px) {
+    .site-content .posts .post-content .menu{
+        display: none;
+        /* height: 3%;
+        background-color: aliceblue; */
+    }
+    .site-content .posts{
+        width: 100%;
+    }
+    .site-content .posts .post-content .blogone{
+        margin: 2rem 1rem  ;
+    }    
+    .blogone>.post-img .post-info span{
+        margin: 10px
+    }
+    .post-content .blogone .post-title p{
+        margin-top: 1rem;
+    }
+    .site-content .posts .sidebar{
+        display: none;
     }
 }
+/* ------------------------------x-------------------main menu----------------------x------------------------- */
+
 .site-content .posts .post-content>.post-img,.post-title{
-    padding-top: 2rem ;
-    padding-bottom: 1rem;
+    padding-top: 1rem ;
+    padding-bottom: 2rem;
     position: relative;
 }
-.site-content .posts .post-content .blogone{
-    margin: 0%;
-}
 .site-content .posts .post-content>.post-img ,.post-info{
-    background:skyblue;
-    padding: 1rem;
-    position:absolute;
-    bottom: 0%;
-    left: 32vw;
-    border-radius:3rem;
+    background: skyblue !important;
+    /* padding: 1rem !important; */
+    /* position:absolute !important; */
+    /* bottom: 0% !important; */
+    /* left: 32vw !important; */
+    /* border-radius:3rem !important; */
 }
+
 /* ....................image zomein/zoomOut effect............................ */
 .site-content .post-content .blogone>.post-img> div{
     overflow: hidden;
@@ -63,7 +96,27 @@ h1,a,p{
 .site-content .posts .post-content .blogone>.post-img .img:hover{
     transform:scale(1.3);
 }
+
+.site-content .posts .sidebar .popular-post .blogone>.post-img> div{
+    overflow: hidden;
+}
+.site-content .posts .sidebar .popular-post .blogone>.post-img .img{
+    width: 100%;
+    transition: all 1s ease;
+}
+.site-content .posts .sidebar .popular-post .blogone>.post-img .img:hover{
+    transform:scale(1.3);
+}
 /* ......................x.......x................x............x................ */
+
+/* @media screen and(max-width: 700px) {
+    
+} */
+
+.site-content .posts .post-content .blogone{
+    margin: 2rem 1rem  ;
+}
+
 .site-content .posts .post-content .blogone>.post-img .post-info span{
     margin: 0.5rem;
 }
@@ -74,8 +127,9 @@ h1,a,p{
     font-style: italic;
 }
 .post-content .blogone .post-title .post-btn{
-    padding: 1rem 1.5rem;
+    padding: .5rem 1.8rem;
     background: skyblue;
+    margin: 2rem 0rem;
 }
 .post-content .Page-navigation .pagination{
     justify-content: center;
@@ -84,3 +138,75 @@ h1,a,p{
 /* .posts .sidebar{
 
 } */
+
+/* -------------------------------Sidebar----------------------------------------- */
+
+.site-content .posts .sidebar{
+    margin: 1.5rem;
+}
+.site-content .posts .sidebar h4{
+    color: white;
+    font-family: poppins;
+    font-weight: 900 ;
+    line-height: 4rem;
+}
+.site-content .posts .sidebar .checkout .checkout-blog{
+    padding-top: 1rem;
+}
+.site-content .posts .sidebar .checkout .checkout-blog div:hover{
+    background: black;
+    border-radius: 1rem;
+}
+.sidebar .popular-post{
+    padding-top: 2rem;
+}
+.sidebar .popular-post .blogone{
+    margin: 1rem;
+    margin-top: 2rem ;
+} 
+.sidebar .popular-post .blogone .post-title{
+    font-size: 1rem;
+    padding-top: 10px;
+    font-style: italic;
+}
+
+.site-content .posts .sidebar .category{
+    margin-top: 10rem;
+}
+.site-content .posts .sidebar .category .category-list{
+    font-family:Arial, Helvetica, sans-serif ;
+    list-style-type: none;
+}
+
+.site-content .posts .sidebar .category .category-list .list-items{
+    background: linear-gradient(to left, #77d6ee 0%, #2bcccc 100%);
+    padding: 1rem 1rem;
+    margin: 1rem 0rem;
+    border-radius: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.site-content .posts .sidebar .category .category-list .list-items a{
+    color: black;
+}
+.site-content .posts .sidebar .newsletter{
+    padding-top: 2rem;
+}
+.site-content .posts .sidebar .newsletter .form-element{
+    padding: 1rem .5rem;
+}
+.site-content .posts .sidebar .newsletter .input-element{
+    width: 100%;
+    height: 1.9rem;
+    padding: .3rem .5rem;
+    font-size: 1rem;
+}
+.site-content .posts .sidebar .newsletter .form-btn{
+    padding: .4rem 36%;
+    margin: 1rem 0;
+    background: skyblue;
+    font-weight: 500;
+}
+/* ----------------x---------------Sidebar--------------------x--------------------- */
