@@ -7,7 +7,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-h1,a,p{
+.contain .site-content .posts h1,a,p{
     color: aliceblue;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -210,3 +210,15 @@ h1,a,p{
     font-weight: 500;
 }
 /* ----------------x---------------Sidebar--------------------x--------------------- */
+
+
+/* --------------------footer----------------------------------- */
+/* .centerdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.usefull-links,.providers,.contact ul li{
+    color: black;
+}

@@ -43,6 +43,11 @@ body{
     height: 50%;
     width: 100%;
 }
+.secone .two div h1{
+    font-size: 50px;
+    font-weight: 900;
+    color: #ff8533;
+}
 .secone .third{
     height: 20%;
 }

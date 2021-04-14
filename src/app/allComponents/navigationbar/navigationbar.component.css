@@ -15,10 +15,11 @@
     font-size: 50px;
     font-weight:900;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 1rem;
     
 }
 ul{
-    margin-left: 150px; 
+    margin-left: 80px; 
 }
 li{
     text-align: right;
