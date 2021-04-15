@@ -11,5 +11,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  bloglist=[
+    {'id':1,'title':'Google Core Web Vitals to Be Used as Ranking Signals & This Week’s Digital Marketing News [PODCAST]',
+    'description':'Google announced new page experience ranking signals for Search that will go into effect in May 2021.This update will combine Core Web vitals with existing search signals.Facebook Ads Accounts Disabled Advertisers around the world reported having their Facebook Ads account disabled on November 5.Facebook product manager Rob Leathern tweeted that this was due to a technical issue and that the mistakenly disabled accounts had been reactivated.',
+    'image':'../../../assets/technology.jpg'},
+    {'id':2,'title':'Apple Cider Cupcakes with Brown Sugar Cinnamon Buttercream',
+      'description':'Moist and flavorful recipe for Apple Cider Cupcakes made from scratch with Brown Sugar Cinnamon Buttercream Frosting makes for a mouthwatering fall dessert!',
+      'image':'../../../assets/food2.jpg'},
+    {'id':3,'title':'Fashion should be a form of escapism, and not a form of imprisonment',
+      'description':'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius odio adipisci sequi voluptatem iste eligendi, aliquam ut possimus laudantium atque quae tempore quam facilis explicabo officiis, soluta sit excepturi ducimus. Distinctio harum minus maiores necessitatibus earum tenetur voluptas cupiditate nobis.',
+      'image':'../../../assets/fasion.jpg'},
+    ]
 }

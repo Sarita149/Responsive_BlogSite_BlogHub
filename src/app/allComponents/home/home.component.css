@@ -7,7 +7,15 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.contain .site-content .posts h1,a,p{
+.site-content .posts h1{
+    color: aliceblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.site-content .posts a{
+    color: aliceblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.site-content .posts p{
     color: aliceblue;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -26,7 +34,7 @@
 
 /* -----------------------------------------------main menu----------------------------------------------- */
 .site-content .posts .post-content .menu{
-    height: 2%;
+    height: 8rem;
     background-color: aliceblue;
     margin: 0rem 1rem;
 }
@@ -35,6 +43,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-content: center;
     position: relative;
     margin: 30px;
     padding: 0;
@@ -42,6 +51,13 @@
 }
 .posts .post-content .menu .features ul li{
     margin-top: 30px;
+}
+.posts .post-content .menu .features ul li {
+    transition: all 0.3s linear;
+}
+.posts .post-content .menu .features ul li:hover{
+    transform: scale(1.1);
+    box-shadow:5px
 }
 .menu .features ul li span{
     font-size: 20px;
@@ -219,6 +235,3 @@
     align-items: center;
 } */
 
-.usefull-links,.providers,.contact ul li{
-    color: black;
-}

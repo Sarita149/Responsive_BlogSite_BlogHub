@@ -7,6 +7,11 @@ import { HomeComponent } from './allComponents/home/home.component';
 import { NavbarComponent } from './allComponents/landing-page/landingPage_navbar/navbar.component';
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
 import { NavigationbarComponent } from './allComponents/navigationbar/navigationbar.component';
+import { LoginComponent } from './allComponents/users/login/login.component';
+import { SignUpComponent } from './allComponents/users/sign-up/sign-up.component';
+import { WriteBlogComponent } from './allComponents/write-blog/write-blog.component';
+import { FooterComponent } from './allComponents/footer/footer.component';
+import { CategoryComponent } from './allComponents/category/category.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { NavigationbarComponent } from './allComponents/navigationbar/navigation
     NavbarComponent,
     LandingPageComponent,
     NavigationbarComponent,
+    LoginComponent,
+    SignUpComponent,
+    WriteBlogComponent,
+    FooterComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
