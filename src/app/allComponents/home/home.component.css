@@ -7,6 +7,10 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.contain .site-content {
+    /* height: calc(100%-17rem); */
+    margin-top: 6rem;
+}
 .site-content .posts h1{
     color: aliceblue;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -63,7 +67,7 @@
     font-size: 20px;
     text-align: justify;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
     .site-content .posts .post-content .menu{
         display: none;
         /* height: 3%;
@@ -84,7 +88,7 @@
     .site-content .posts .sidebar{
         display: none;
     }
-}
+}  
 /* ------------------------------x-------------------main menu----------------------x------------------------- */
 
 .site-content .posts .post-content>.post-img,.post-title{
@@ -94,11 +98,11 @@
 }
 .site-content .posts .post-content>.post-img ,.post-info{
     background: skyblue !important;
-    /* padding: 1rem !important; */
-    /* position:absolute !important; */
-    /* bottom: 0% !important; */
-    /* left: 32vw !important; */
-    /* border-radius:3rem !important; */
+    /* padding: 1rem !important;
+    position:absolute !important;
+    bottom: 0% !important;
+    left: 32vw !important;
+    border-radius:3rem !important; */
 }
 
 /* ....................image zomein/zoomOut effect............................ */
@@ -228,10 +232,13 @@
 /* ----------------x---------------Sidebar--------------------x--------------------- */
 
 
-/* --------------------footer----------------------------------- */
-/* .centerdiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
+/* -------------------------------Writeblog----------------------------------- */
+.glass-container .glass .container .row{
+    /* background-color:white;
+    width:200px;
+    height:100px;
+    opacity:0.4; */
+}
+.card .card-body .c-div-two .c-div-two-two button{
+    /* display: none;        */
+}

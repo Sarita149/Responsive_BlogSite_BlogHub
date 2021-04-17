@@ -4,8 +4,10 @@
 /*# --------x-------Global Classes--------x------------- */
 
 .nav{
-    position:relative;
+    position:fixed;
     width: 100%;
+    top: 0;
+    z-index: 999;
     background:rgba(0,25,53);
 }
 
@@ -35,3 +37,7 @@ ul li a:hover {
     background-color:black;
     border-radius: 5px;
   }
+
+  .card .card-body .c-div-two .c-div-two-two button{
+    display:flex;       
+}
