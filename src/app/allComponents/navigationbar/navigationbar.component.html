@@ -15,10 +15,13 @@
               <a class="nav-link" [routerLink]="['/category']" style="color: white;">Category</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="openModal(template)" style="color: white;">Write</a>
+                <a class="nav-link" (click)="openModal(writeModal,'writeblog')" style="color: white; cursor: pointer;">Write</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white;">About Us</a>
+                <a  class="nav-link" href="javascript:void(0)" (click)="changeBSV()" style="color: white;">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="openModal(temp)" style="color: white; cursor: pointer;">LogIn</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="color: white;">Logout</a>
@@ -29,13 +32,13 @@
 </div>
 
 <section>
-  <ng-template #template >
+  <ng-template #writeModal >
   <div class="glass-container">
     <div class="glass" style="width: 100%; height: 50vh;">
       <div class="container">
         <div class="modal-header">
           <h4 class="modal-title pull-left">Write Your Blog</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="writeblogModalRef.hide()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -91,3 +94,77 @@
 </ng-template>
 </section>
 
+<section class="Login">
+    <ng-template #temp >
+      <div class="glass-container">
+        <div class="glass" style="width: 100%; height: 50vh;">
+          <div class="container">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Login</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width: 100%;">
+              <form action="">
+                <div class="form-group">
+                  <label for="my-input"><i class="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>&nbsp;Username</label>
+                  <input id="my-input" class="form-control" type="text" name="">
+                </div>
+                <div class="form-group">
+                  <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Password</label>
+                  <input id="my-input" class="form-control" type="text" name="">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+              <button type="button" class="btn btn-outline-success btn-sm">Success</button>
+            </div> 
+   
+              <a style="cursor: pointer; color: blue; margin-left: 21rem;" (click)="openModal(signupTemplate,'signupmodal')">Create Account?</a>
+            <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;" (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+</section>
+
+
+<section class="Signup">
+  <ng-template #signupTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%; height: 50vh;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Signup</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Confirm Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-success btn-sm">Success</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>

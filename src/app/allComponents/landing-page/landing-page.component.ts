@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,17 +9,22 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  isCollapsable:boolean = false;
+  isCollapsable: boolean = false;
+  aboutVal: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private helpService: HelperService) { }
 
   ngOnInit(): void {
+    this.helpService.getBehValue().subscribe(res => {
+      this.aboutVal = res;
+      console.log(res);
+    });
   }
-  forSignup(){
+  forSignup() {
     this.router.navigate(['home']);
-    
+
   }
-  forLogin(){
+  forLogin() {
     this.router.navigate(['home']);
   }
 
