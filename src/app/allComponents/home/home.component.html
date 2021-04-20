@@ -254,7 +254,7 @@
             <div class="contain">
               <div class="wrapper">
                 <div class="image">
-                  <img src="url" alt="">
+                  <!-- <img src="" alt=""> -->
                 </div>
                 <div class="content">
                   <div class="icon"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
@@ -263,8 +263,11 @@
                 <div id="cancel-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
                 <div class="file-name">File name</div>
               </div>
-              <input type="file" hidden id="defaultbtn">
-              <button id="custom-btn"  (change)="defaultBtnActive($event)">choose a file</button>
+              <input type="file" hidden (change)="defaultBtnActive(input)" id="defaultbtn">
+              <button id="custom-btn" >choose a file</button>
+            </div>
+            <div class="caption">
+              <input type="text" [(ngModel)]="inputvalue">
             </div>
           </div>
           <div class="modal-footer">
@@ -285,7 +288,7 @@
         <div class="container">
           <div class="modal-header">
             <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="quotUploads.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -323,7 +326,7 @@
         <div class="container">
           <div class="modal-header">
             <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="linksUpload.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -361,7 +364,7 @@
         <div class="container">
           <div class="modal-header">
             <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="doChat.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -399,7 +402,7 @@
         <div class="container">
           <div class="modal-header">
             <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="audioUpload.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -437,7 +440,7 @@
         <div class="container">
           <div class="modal-header">
             <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="vediosUploads.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>

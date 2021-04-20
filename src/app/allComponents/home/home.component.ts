@@ -11,9 +11,15 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class HomeComponent implements OnInit {
   showME:boolean=false;
+  
   modalRef: BsModalRef;
   photoUpload:BsModalRef;
   writeblogModalRef :BsModalRef;
+  quotUploads: BsModalRef<Object>;
+  linksUpload: BsModalRef<Object>;
+  doChat: BsModalRef<Object>;
+  audioUpload: BsModalRef<Object>;
+  vediosUploads: BsModalRef<Object>;
 
   // customBtn:boolean=false;
   constructor(private router: Router,private modalService: BsModalService,private helpService:HelperService) { }
@@ -22,7 +28,10 @@ export class HomeComponent implements OnInit {
   }
   
   url="../../../assets/nature.jpg"
+  inputvalue:String="Add a caption, if you like "
   defaultBtnActive(value){
+    value.click();
+
     if(value.target.files){
       var reader = new FileReader();
       reader.readAsDataURL(value.target.files[0]);
@@ -41,7 +50,23 @@ export class HomeComponent implements OnInit {
     }
     else if(name=='photo'){
       this.photoUpload =  this.modalService.show(template);
-    }else {
+    }
+    else if(name=='quote'){
+      this.quotUploads =  this.modalService.show(template);
+    }
+    else if(name=='links'){
+      this.linksUpload =  this.modalService.show(template);
+    }
+    else if(name=='chat'){
+      this.doChat =  this.modalService.show(template);
+    }
+    else if(name=='audio'){
+      this.audioUpload =  this.modalService.show(template);
+    }
+    else if(name=='vedio'){
+      this.vediosUploads =  this.modalService.show(template);
+    }
+    else {
       this.modalRef = this.modalService.show(template);
     }
     
@@ -59,3 +84,7 @@ export class HomeComponent implements OnInit {
       'image':'../../../assets/fasion.jpg'},
     ]
 }
+function clicked() {
+  throw new Error('Function not implemented.');
+}
+
