@@ -8,31 +8,31 @@
             <div class="features">
               <ul >
                 <li>
-                  <a href=""><i class="fa fa-3x fa-file-text" style="color: black;" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(textTemplate,'text')"><i class="fa fa-3x fa-file-text" style="color: black;" aria-hidden="true"></i></a><br>
                     <span>Text</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x fa-camera" style="color: rgb(243, 95, 26)" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(photoTemplate,'photo')"><i class="fa fa-3x fa-camera" style="color: rgb(243, 95, 26)" aria-hidden="true"></i></a><br>
                     <span>Camera</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x fa-quote-right" style="color: orange;" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(quoteTemplate,'quote')"><i class="fa fa-3x fa-quote-right" style="color: orange;" aria-hidden="true"></i></a><br>
                     <span>Quote</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x fa-link" style="color: rgb(118, 248, 118);" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(linksTemplate,'links')"><i class="fa fa-3x fa-link" style="color: rgb(118, 248, 118);" aria-hidden="true"></i></a><br>
                     <span>Links</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x  fa-comments-o" style="color: rgb(79, 195, 241);" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(chatTemplate,'chat')"><i class="fa fa-3x  fa-comments-o" style="color: rgb(79, 195, 241);" aria-hidden="true"></i></a><br>
                     <span>Chat</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x fa-headphones" style="color: blueviolet;" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(audioTemplate,'audio')"><i class="fa fa-3x fa-headphones" style="color: blueviolet;" aria-hidden="true"></i></a><br>
                     <span>Audio</span>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-3x fa-video-camera" style="color: rgb(248, 108, 206);" aria-hidden="true"></i></a><br>
+                  <a (click)="openModal(vedioTemplate,'vedio')"><i class="fa fa-3x fa-video-camera" style="color: rgb(248, 108, 206);" aria-hidden="true"></i></a><br>
                     <span>Vedio</span>
                 </li>
               </ul>
@@ -173,3 +173,298 @@
   <!-- --------------Glass-container----------------------------- -->
   
 </div>
+
+<!-- --------------------Modals------------------- -->
+<section class="text">
+  <ng-template #textTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Write Your Blog</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="writeblogModalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <div class="card">
+              <div class="card-body m-2">
+                <div>
+                <div class="d-flex my-2 flex-row">
+                  <div class="">
+                    <input type="text" placeholder="Title" style="width: 100%; border: none; line-height: 4rem; font-size: 28px;">
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="" >
+                    <input type="text" placeholder="your text here" style="width: 100%; border: none; font-size: 20px;">
+                  </div>
+                  <div class="" >
+                    <div class="row">
+                      <div>
+                        <ul class="list-unstyled d-flex flex-row" *ngIf="showME">
+                          <li class="px-1">
+                            <a href=""><i class="fa fa-headphones" style="color: black;" aria-hidden="true"></i></a>
+                          </li>
+                          <li class="px-1">
+                            <a href=""><i class="fa fa-video-camera" style="color: black" aria-hidden="true"></i></a>
+                          </li>
+                          <li class="px-1">
+                            <a href=""><i class="fa fa-camera" style="color:black" aria-hidden="true"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="margin-left:12rem">
+                        <button class="btn btn-light" (click)="toggle()" type="button">...</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row d-flex flex-row my-2 mx-2"  style="padding-top: 4rem; justify-content: space-between;">
+                  <div class="">
+                   <button type="button" (click)="close()" class="btn btn-secondary btn-sm px-3 py-1">Close</button>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-success btn-sm px-3 py-1">Post</button>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+
+<section class="photo">
+  <ng-template #photoTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="photoUpload.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <div class="contain">
+              <div class="wrapper">
+                <div class="image">
+                  <img src="url" alt="">
+                </div>
+                <div class="content">
+                  <div class="icon"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
+                  <div class="text">No file chosen, yet!</div>
+                </div>
+                <div id="cancel-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <div class="file-name">File name</div>
+              </div>
+              <input type="file" hidden id="defaultbtn">
+              <button id="custom-btn"  (change)="defaultBtnActive($event)">choose a file</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Post</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<section class="quote">
+  <ng-template #quoteTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<section class="links">
+  <ng-template #linksTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<section class="chat">
+  <ng-template #chatTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<section class="audio">
+  <ng-template #audioTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<section class="vedio">
+  <ng-template #vedioTemplate >
+    <div class="glass-container">
+      <div class="glass" style="width: 100%;">
+        <div class="container">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Sign-up</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+            <form action="">
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                <input id="my-input" class="form-control" type="text" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
+            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          </div> 
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+<!-- -------------------x------------modals------------x--------------- -->

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +10,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  showME:boolean=false
-  constructor(private router: Router) { }
+  showME:boolean=false;
+  modalRef: BsModalRef;
+  photoUpload:BsModalRef;
+  writeblogModalRef :BsModalRef;
+
+  // customBtn:boolean=false;
+  constructor(private router: Router,private modalService: BsModalService,private helpService:HelperService) { }
 
   ngOnInit(): void {
+  }
+  
+  url="../../../assets/nature.jpg"
+  defaultBtnActive(value){
+    if(value.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(value.target.files[0]);
+      reader.onload=(data:any)=>{
+        this.url=data.target.results;
+      }
+    }
+  }
+  toggle(){
+    this.showME=!this.showME
+  }
+  openModal(template: TemplateRef<any>,name='') {
+    console.log('template ref :: ',template);
+    if(name=='text'){
+      this.writeblogModalRef =  this.modalService.show(template);
+    }
+    else if(name=='photo'){
+      this.photoUpload =  this.modalService.show(template);
+    }else {
+      this.modalRef = this.modalService.show(template);
+    }
+    
   }
   
   bloglist=[

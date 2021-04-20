@@ -65,12 +65,16 @@ body{
     color: white;
     font-weight: 600;
 }
-/* .sectwo .two {
+.sectwo .row:hover {
+    margin: 2rem 4rem ;
+    width: 100%; 
+    text-shadow: 0 2px 5px rgba(33, 49, 143, 0.979); 
+    box-shadow: 0 4px 25px rgba(33, 49, 143, 0.979); 
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-.sectwo .two .info{
+/* .sectwo .two .info{
     width: 50%; 
     text-align: center;
     padding: 1rem;

@@ -34,7 +34,7 @@
 <section>
   <ng-template #writeModal >
   <div class="glass-container">
-    <div class="glass" style="width: 100%; height: 50vh;">
+    <div class="glass" style="width: 100%;">
       <div class="container">
         <div class="modal-header">
           <h4 class="modal-title pull-left">Write Your Blog</h4>
@@ -97,7 +97,7 @@
 <section class="Login">
     <ng-template #temp >
       <div class="glass-container">
-        <div class="glass" style="width: 100%; height: 50vh;">
+        <div class="glass" style="width: 100%;">
           <div class="container">
             <div class="modal-header">
               <h4 class="modal-title pull-left">Login</h4>
@@ -108,22 +108,21 @@
             <div class="modal-body" style="width: 100%;">
               <form action="">
                 <div class="form-group">
-                  <label for="my-input"><i class="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>&nbsp;Username</label>
+                  <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
                   <input id="my-input" class="form-control" type="text" name="">
                 </div>
                 <div class="form-group">
-                  <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Password</label>
+                  <label for="my-input"><i class="fa fa-2x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
                   <input id="my-input" class="form-control" type="text" name="">
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer pb-0">
               <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-              <button type="button" class="btn btn-outline-success btn-sm">Success</button>
-            </div> 
-   
+              <button type="button" class="btn btn-outline-success btn-sm">Login</button>
+            </div>
               <a style="cursor: pointer; color: blue; margin-left: 21rem;" (click)="openModal(signupTemplate,'signupmodal')">Create Account?</a>
-            <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;" (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
+              <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;" (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
           </div>
         </div>
       </div>
@@ -134,10 +133,10 @@
 <section class="Signup">
   <ng-template #signupTemplate >
     <div class="glass-container">
-      <div class="glass" style="width: 100%; height: 50vh;">
+      <div class="glass" style="width: 100%;">
         <div class="container">
           <div class="modal-header">
-            <h4 class="modal-title pull-left">Signup</h4>
+            <h4 class="modal-title pull-left">Sign-up</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -145,22 +144,22 @@
           <div class="modal-body" style="width: 100%;">
             <form action="">
               <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" aria-hidden="true"></i>&nbsp;Username</label>
+                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
                 <input id="my-input" class="form-control" type="text" name="">
               </div>
               <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="text" name="">
+                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
               </div>
               <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-lock" aria-hidden="true"></i>&nbsp;Confirm Password</label>
+                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
                 <input id="my-input" class="form-control" type="text" name="">
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-            <button type="button" class="btn btn-outline-success btn-sm">Success</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
             <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
           </div> 
         </div>
