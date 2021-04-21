@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit {
   url = "";
   file:any = '';
   filename:any
-
-  onDeselect() {
+  onDeselect(value) {
     this.url = '';
     this.file = '';
+    this.filename='';
   }
 
   fileSelect(evt) {
