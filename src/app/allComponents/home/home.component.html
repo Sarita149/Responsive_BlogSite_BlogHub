@@ -254,20 +254,20 @@
             <div class="contain">
               <div class="wrapper">
                 <div class="image">
-                  <!-- <img src="" alt=""> -->
+                  <img *ngIf="url" [src]="url" alt="">
                 </div>
                 <div class="content">
                   <div class="icon"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
                   <div class="text">No file chosen, yet!</div>
                 </div>
                 <div id="cancel-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <div class="file-name">File name</div>
+                <div class="file-name" >{{filename}}</div>
               </div>
-              <input type="file" hidden (change)="defaultBtnActive(input)" id="defaultbtn">
-              <button id="custom-btn" >choose a file</button>
+              <input type="file" (change)="fileSelect($event)" #input hidden id="defaultbtn">
+              <button id="custom-btn" (click)="input.click()">choose a file</button>
             </div>
             <div class="caption">
-              <input type="text" [(ngModel)]="inputvalue">
+              <input id="" type="text">
             </div>
           </div>
           <div class="modal-footer">
@@ -287,33 +287,25 @@
       <div class="glass" style="width: 100%;">
         <div class="container">
           <div class="modal-header">
-            <h4 class="modal-title pull-left">Sign-up</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="quotUploads.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body" style="width: 100%;">
-            <form action="">
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
-                <input id="my-input" class="form-control" type="text" name="">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
-                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="text" name="">
-              </div>
-            </form>
+              <textarea name="" id="" cols="45" rows="1" style="width: 100%; border: none; margin-bottom: 1rem; font-size: 40px; font-family:'Courier New', Courier, monospace;" placeholder='"Quote"'></textarea>
+              <textarea name="" id="" cols="45" rows="1" style="width: 100%; border: none;margin-bottom: 1rem; font-size: 20px; font-family:'Courier New', Courier, monospace;" placeholder='write here'></textarea>               
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
-            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
-          </div> 
         </div>
+        <div class="modal-footer">
+          <div class="row d-flex flex-row mx-2"  style="width: 100%; padding-top: 1rem; justify-content: space-between;">
+            <div>
+              <button type="button" (click)="close()" class="btn btn-secondary btn-sm px-3 py-1">Close</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-success btn-sm px-3 py-1">Post</button>
+            </div>
+          </div>
+        </div> 
       </div>
     </div>
   </ng-template>
@@ -325,33 +317,25 @@
       <div class="glass" style="width: 100%;">
         <div class="container">
           <div class="modal-header">
-            <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="linksUpload.hide()">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="quotUploads.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body" style="width: 100%;">
-            <form action="">
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
-                <input id="my-input" class="form-control" type="text" name="">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
-                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="text" name="">
-              </div>
-            </form>
+              <textarea name="" id="" cols="45" rows="1" style="width: 100%; border: none; margin-bottom: 1rem; font-size: 40px; font-family:'Courier New', Courier, monospace;" placeholder='"Quote"'></textarea>
+              <textarea name="" id="" cols="45" rows="1" style="width: 100%; border: none;margin-bottom: 1rem; font-size: 20px; font-family:'Courier New', Courier, monospace;" placeholder='write here'></textarea>               
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
-            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
-          </div> 
         </div>
+        <div class="modal-footer">
+          <div class="row d-flex flex-row mx-2"  style="width: 100%; padding-top: 1rem; justify-content: space-between;">
+            <div>
+              <button type="button" (click)="close()" class="btn btn-secondary btn-sm px-3 py-1">Close</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-success btn-sm px-3 py-1">Post</button>
+            </div>
+          </div>
+        </div> 
       </div>
     </div>
   </ng-template>
