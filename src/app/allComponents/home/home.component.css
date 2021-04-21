@@ -294,12 +294,12 @@
     background: linear-gradient(135deg,#3a8ffe 0% , #9658fe 100%);
 }
 .wrapper:hover #cancel-btn{
-    /* display: block;
+    display: block;
     position: absolute;
     right: 15px;
     top: 15px;
     cursor: pointer;
-    color: #9568fe; */
+    color: #9568fe;
 }
 .contain #custom-btn{
     margin-top: 30px;

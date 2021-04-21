@@ -254,13 +254,13 @@
             <div class="contain">
               <div class="wrapper">
                 <div class="image">
-                  <img *ngIf="url" [src]="url" alt="">
+                  <img *ngIf="url" [src]="url" alt="" #img>
                 </div>
                 <div class="content">
                   <div class="icon"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
                   <div class="text">No file chosen, yet!</div>
                 </div>
-                <div id="cancel-btn" (click)='onDeselect()'><i class="fa fa-times" aria-hidden="true"></i></div>
+                <div id="cancel-btn" (click)='onDeselect()' [hidden]="displayCnclBtn==false"><i  class="fa fa-times" aria-hidden="true"></i></div>
                 <div class="file-name" >{{filename}}</div>
               </div>
               <input type="file" (change)="fileSelect($event)" #input hidden id="defaultbtn">

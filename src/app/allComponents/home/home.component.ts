@@ -32,10 +32,14 @@ export class HomeComponent implements OnInit {
   url = "";
   file:any = '';
   filename:any
-  onDeselect(value) {
+  displayCnclBtn:boolean=false;
+  onDeselect(value) { 
     this.url = '';
     this.file = '';
     this.filename='';
+    this.displayCnclBtn=!this.displayCnclBtn;
+    // console.log(this.displayCnclBtn);
+    
   }
 
   fileSelect(evt) {
@@ -52,7 +56,9 @@ export class HomeComponent implements OnInit {
       this.url = base64;
       // console.log(base64);
     }
-
+    this.displayCnclBtn=!this.displayCnclBtn;
+    // console.log(this.displayCnclBtn);
+    
   }
 
   toggle() {
