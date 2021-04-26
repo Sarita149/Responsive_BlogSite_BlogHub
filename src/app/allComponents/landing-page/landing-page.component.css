@@ -1,25 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-@media screen and (max-width: 700px) {
-    .nav{
-        display: none;
-    }
-    .sectwo .info .content{
-        width: 100%;
-        /* background: white; */
-    }
-    .secthree .on{
-        flex-wrap: wrap;
-    }
-    
-}
 .secone{
     width: 100%;
     height: 95vh;
-    background: linear-gradient(rgba(0,0,0,0.4),#54bae2), url(../../../assets/index.jpg);
+    background: linear-gradient(rgba(0,0,0,0.3),#54bae2), url(../../../assets/index.jpg);
     background-size: cover;
     background-position:center;
     /* display: flex; */
@@ -37,6 +29,12 @@ body{
     font-weight: 900;
     color: #ff8533;
 }
+
+.secone .two div h1{
+    font-size: 28px;
+     font-weight: 700;
+}
+
 .secone .third{
     height: 20%;
 }
@@ -48,17 +46,17 @@ body{
     background-color: rgb(61, 221, 61);
 }
 
+/* ---------------------------sectwo--------------------------- */
 .sectwo{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content:center;
     width: 100%;
     height: 100vh;
     background: rgb(61, 221, 61);
-    /* background-size: cover;
-    background-position:center; */
 }
-/* .sectwo .one{
-    height: 20%;
-} */
 .sectwo .one h3{
+    margin-bottom: 2rem ;
     text-align: center;
     font-size: 20px;
     padding: 10px;
@@ -74,12 +72,9 @@ body{
     display: flex;
     flex-direction: row;
 }
-/* .sectwo .two .info{
-    width: 50%; 
-    text-align: center;
-    padding: 1rem;
-    /* margin: 0rem 32rem; */
-/* }  */
+/* -----------x-------------sectwo-------------x----------------- */
+
+/* --------------------------secthree---------------------- */
 .secthree {
     width: 100%;
     height: 100vh;
@@ -88,26 +83,54 @@ body{
     background-position:center;
 }
 .secthree .on{
-    margin-left: 5rem;
-    padding-top: 4rem;
+    padding-top: 5rem;
+    height: 100vh;
     display: flex;
     flex-direction: row;
-}
+    justify-content: center;
 
+}
+.secthree .on .three{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.secthree .on .three img{
+    width: 80%;
+    height: auto;
+}
+.secthree .on .two{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    width: 30%;
+    height: 473px;
+}
+/* --------------x----------------secthree----------------x----------------- */
+
+
+/* -------------------------------secfour------------------------------------ */
+
+/* ----------------x---------------secfour---------------x--------------------- */
 .secfour{
-    /* position:absolute; */
     width: 100%;
-    height: 90vh;
-    background-size: cover;
-    background-position:center;
-    /* background: rgb(247, 55, 21); */
+    height: 95vh;
 }
 .secfour .slider{
     display: block;
 }
+.secfour .slider .carousel{
+    width: 100%;
+    height: 95vh;
+}
+.secfour .slider .carousel img{
+    width: 100%;
+    height: 95vh;
+}
 .carousel-caption{
-    color: black;
-    padding-bottom: 400px;
+    color: white;
+    padding-bottom: 300px;
     line-height: 30px;
 }
 .carousel-caption h1{
@@ -121,21 +144,32 @@ body{
 .carousel-caption h5{
     width: 60%;
     margin: auto;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.9;
     font-family: 'Poppins', sans-serif;
+    font-weight: 900;
 }
-.secfive{
-    width: 100%;
-    height: 120vh;
-    background: #ff8533
+.carousel-caption .bttns{
+    margin-top: 2rem;
 }
 
-.secfive .centerdiv .one{
+/* --------------------------secfive------------------------------- */
+.secfive{
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    background: #ff8533
+}
+
+.secfive .centerdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.secfive .centerdiv .one{
     margin-bottom: 20px;
 }
 .secfive .centerdiv .one ul li{
@@ -156,30 +190,9 @@ body{
 }
 .secfive .centerdiv ul li a{
     text-decoration: none;
-    /* align-items: center; */
 }
 .secfive .centerdiv ul li a i{
     margin-top:25px;
-}
-/* .secfive .centerdiv .iconsname{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    align-items: left;
-}
-.secfive .centerdiv .iconsname p{
-    text-align: left;
-    display: inline;
-    margin-left:100px ;
-    marginpx; */
-    /* line-height: 10px;
-
-} */
-.secfive .centerdiv .two{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: top;
 }
 .secfive .centerdiv ul{
     display: flex;
@@ -187,12 +200,169 @@ body{
     justify-content: center;
     list-style-type: none;
 }
-.secfive .centerdiv .two ul li {
-    height: 100px;
-    width: 100px;
-    background-color: #f5f6fa;
-    border-radius: 50px;
-    text-align: center;
-    margin: 10px;
-    line-height: 60px;
+.secfive .centerdiv .iconsname{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    box-sizing: border-box;
+}
+/* -----------------------x-------------------secfive----------------x---------------------- */
+/*-------------------- mobiles----------- */
+
+@media (max-width: 768px) {
+    .nav{
+        display: none;
+    }
+    .sectwo .info .content{
+        width: 100%;
+    }
+    .sectwo .info .content{
+        padding: 0px 2px;
+        box-sizing:border-box ;
+    }
+    .secthree .on{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+    .secthree .on .three{
+        height: 50vh;
+    }
+    .secthree .on .three img{
+        height: 400px;
+        width: 100%;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    .secthree .on .two{
+        padding: 0rem 2rem 5rem 2rem;
+        box-sizing: border-box;
+        width: 100%;
+        height: 300px;
+        text-align: center;
+    }
+
+    /* -------------------------------------------section 5--------------------------------------- */
+ 
+    .carousel-caption{
+        color: white;
+        padding-bottom: 15rem;
+        line-height: 30px;
+    }
+    .carousel-caption h1{
+        font-size: 32px;
+        letter-spacing: 1px;
+        margin-top: 0px;
+    }
+    
+    .carousel-caption h5{
+        width: 100%;
+        margin: auto;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .carousel-caption .bttns{
+        margin-top: 0.5rem;
+    }
+    
+}
+/*---------------- desktop & laptops------------- */
+@media (min-width: 1096px){
+    .secone .two{
+        text-align: center;
+        height: 50%;
+        width: 100%;
+    }
+    .secone .two div{
+        height:50%
+    }
+    .secone .two div h1{
+        font-size: 20rem;
+        font-weight: 900;
+        color: #ff8533;
+    }
+    .secone .two div h1{
+        font-size: 32px;
+         font-weight: 700;
+    }
+    .secone .third{
+        height: 30%;
+    }
+    .secone .two table tr td .bttns .bt1{
+        padding: 2rem;
+        background-color: rgb(68, 174, 216);
+    }
+    .secone .two table tr td .bttns .bt{
+        background-color: rgb(61, 221, 61);
+    }
+    /* .sectwo .info .content{
+        width: 100%;
+        background: white;
+    }
+    .secthree .on{
+        flex-wrap: wrap;
+    } */
+    
+}
+/*------------------ tablets------------------ */
+@media (min-width: 768px) and (max-width:1023px){
+    .sectwo .info .content{
+        width: 100%;
+        /* background: white; */
+    }
+    .secthree .on{
+        flex-wrap: wrap;
+    }
+    .secthree .on .three{
+        width: 50%;
+    }
+    .secthree .on .three img{
+        width: 100%;
+        padding: 2rem;
+        height: auto;
+        box-sizing: border-box;
+    }
+    .secthree .on .two{
+        padding: 0rem 2rem 5rem 0rem;
+        box-sizing: border-box;
+        width: 50%;
+        height: 473px;
+    }  
+     /*------------------section four-------------------  */
+    .secfive .centerdiv .iconsname{
+        padding: 1rem;
+    }
+    .carousel-caption h1{
+        margin-top: 0rem;
+    }
+    .carousel-caption{
+        padding-bottom: 10rem;
+    }
+    .secfour{
+        height: 80vh;
+    }
+    .secfour .slider .carousel{
+        height: 80vh;
+    }
+    .secfour .slider .carousel img{
+        height: 80vh;
+    }
+}
+@media (max-width: 527px){
+    .secone{
+        height: 100vh;
+    }
+    .sectwo{
+        display: none;
+    }
+    .secthree{
+        display: none;
+    }
+    .secfive{
+        display: none;
+    }
+    .secfour{
+        display: none;
+    }
 }

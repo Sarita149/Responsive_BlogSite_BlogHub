@@ -261,7 +261,7 @@
                   <div class="text">No file chosen, yet!</div>
                 </div>
                 <div id="cancel-btn" (click)='onDeselect()' [hidden]="displayCnclBtn==false"><i  class="fa fa-times" aria-hidden="true"></i></div>
-                <div class="file-name" >{{filename}}</div>
+                <div class="file-name" [hidden]="displayCnclBtn==false">{{filename}}</div>
               </div>
               <input type="file" (change)="fileSelect($event)" #input hidden id="defaultbtn">
               <button id="custom-btn" (click)="input.click()">choose a file</button>
