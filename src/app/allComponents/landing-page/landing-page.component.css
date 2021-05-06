@@ -290,7 +290,7 @@ body{
         height: 30%;
     }
     .secone .two table tr td .bttns .bt1{
-        padding: 2rem;
+        padding: 0rem;
         background-color: rgb(68, 174, 216);
     }
     .secone .two table tr td .bttns .bt{
@@ -352,6 +352,10 @@ body{
 @media (max-width: 527px){
     .secone{
         height: 100vh;
+
+    }
+    .secone .td{
+        width: 100%;
     }
     .sectwo{
         display: none;
