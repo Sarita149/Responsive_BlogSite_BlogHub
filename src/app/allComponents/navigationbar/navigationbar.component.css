@@ -2,31 +2,35 @@
 
 
 /*# --------x-------Global Classes--------x------------- */
-
-.nav{
+.wrap{
     position:fixed;
     width: 100%;
     top: 0;
     z-index: 999;
     background:rgba(0,25,53);
 }
+.nav .brand{
+    width: 50%;
 
+}
 .nav .brand .logo{
     /* color: burlywood; */
     color: sandybrown;
-    font-size: 50px;
+    font-size: 3rem;
     font-weight:900;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-left: 1rem;
     
 }
 ul{
+    /* text-align: center; */
     margin-left: 80px; 
 }
 li{
-    text-align: right;
+    text-align: center;
+    padding: 1rem;
     padding-left: 20px;
-    padding-right: 20px;
+     padding-right: 20px; 
     /* background-color: tomato; */
 
 }
