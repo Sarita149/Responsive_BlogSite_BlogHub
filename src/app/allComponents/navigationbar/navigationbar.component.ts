@@ -3,6 +3,8 @@ import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import {FormGroup,FormControl} from '@angular/forms'
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navigationbar',
@@ -10,19 +12,56 @@ import { HelperService } from 'src/app/services/helper.service';
   styleUrls: ['./navigationbar.component.css']
 })
 export class NavigationbarComponent implements OnInit {
+
+  constructor(private router: Router,private modalService: BsModalService,
+    private helpService:HelperService,private userService:UserService) { }
+
+  userDetails = new FormGroup({
+    username : new FormControl(''),
+    email : new FormControl(''),
+    password : new FormControl(''),
+    phone : new FormControl('')
+  })
+
+  collectRegData(){
+    // console.log(this.userDetails);
+    if(this.userDetails.valid){
+      this.userService.registerUser(this.userDetails.value).subscribe((data)=>{
+        this.userDetails.reset();
+        // this.router.navigate(['']);
+      })
+    }    
+  }
+
+  UserLoginDetails=new FormGroup({
+    username:new FormControl(''),
+    password:new FormControl(''),
+  })
+
+  UserLogin(){
+    console.log(this.UserLoginDetails.value);
+    if(this.UserLoginDetails.valid){
+      this.userService.loginUser(this.UserLoginDetails.value).subscribe(()=>{
+        this.UserLoginDetails.reset();
+        // this.router.navigate(['home']);
+      });
+    }
+    
+  }
+
+
   showME:boolean=false;
   modalRef: BsModalRef;
   signUpModal:BsModalRef;
   writeblogModalRef :BsModalRef;
   // modalService: any;
-  constructor(private router: Router,private modalService: BsModalService,private helpService:HelperService) { }
 
   ngOnInit(): void {
   }
 
   changeBSV(){
     this.helpService.setBehValue(true);
-    this.router.navigate([''])
+    this.router.navigate(['home'])
   }
 
   toggle(){
@@ -30,7 +69,7 @@ export class NavigationbarComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>,name='') {
-    console.log('template ref :: ',template);
+    // console.log('template ref :: ',template);
     if(name=='writeblog'){
       this.writeblogModalRef =  this.modalService.show(template);
     }

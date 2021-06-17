@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { HelperService } from 'src/app/services/helper.service';
+import { BlogServiceService } from 'src/app/services/blog-service.service';
 
 @Component({
   selector: 'app-home',
@@ -22,11 +23,14 @@ export class HomeComponent implements OnInit {
   vediosUploads: BsModalRef<Object>;
 
   // customBtn:boolean=false;
-  constructor(private router: Router, private modalService: BsModalService, private helpService: HelperService) { }
+  constructor(private router: Router, private modalService: BsModalService, private blogService: BlogServiceService) { }
 
   ngOnInit(): void {
+    this.blogService.allblogs().subscribe((res)=>{
+      console.log(res);
+      
+    })
   }
-
 
   inputvalue: String = "Add a caption, if you like "
   url = "";

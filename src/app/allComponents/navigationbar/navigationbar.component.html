@@ -106,20 +106,20 @@
               </button>
             </div>
             <div class="modal-body" style="width: 100%;">
-              <form action="">
+              <form [formGroup]='UserLoginDetails' (ngSubmit)='UserLogin()'>
                 <div class="form-group">
                   <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
-                  <input id="my-input" class="form-control" type="text" name="">
+                  <input id="my-input" class="form-control" type="email" name="username" formControlName='username'>
                 </div>
                 <div class="form-group">
                   <label for="my-input"><i class="fa fa-2x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
-                  <input id="my-input" class="form-control" type="text" name="">
+                  <input id="my-input" class="form-control" type="password" name="password" formControlName='password'>
+                </div>
+                <div class="modal-footer pb-0">
+                  <button type="button" #toggle class="btn btn-outline-secondary btn-sm" (click)="modalRef.hide()">Close</button>
+                  <button type="submit" class="btn btn-outline-success btn-sm" (click)="toggle.click()" >Login</button>
                 </div>
               </form>
-            </div>
-            <div class="modal-footer pb-0">
-              <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-              <button type="button" class="btn btn-outline-success btn-sm">Login</button>
             </div>
               <a style="cursor: pointer; color: blue; margin-left: 21rem;" (click)="openModal(signupTemplate,'signupmodal')">Create Account?</a>
               <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;" (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
@@ -142,26 +142,30 @@
             </button>
           </div>
           <div class="modal-body" style="width: 100%;">
-            <form action="">
-              <div class="form-group">
+            <form [formGroup]='userDetails' (ngSubmit)="collectRegData()">
+              <div class="form-group" >
                 <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
-                <input id="my-input" class="form-control" type="text" name="">
+                <input id="my-input" class="form-control" type="text" formControlName='username' name="username">
               </div>
               <div class="form-group">
                 <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
-                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" name="">
+                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email" formControlName='email' name="email">
+              </div>
+              <div class="form-group">
+                <label for="my-input"><i class="fa fa-3x fa-mobile" style="color:rgb(58, 192, 125);" aria-hidden="true"></i>&nbsp;Phone</label>
+                <input id="my-input" class="form-control" type="phone"  formControlName='phone' name="phone">
               </div>
               <div class="form-group">
                 <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="text" name="">
+                <input id="my-input" class="form-control" type="password"  formControlName='password' name="password">
               </div>
+              <div class="modal-footer">
+                <button type="button" #signupToggle class="btn btn-outline-secondary btn-sm" (click)="signUpModal.hide()">Close</button>
+                <button type="submit" class="btn btn-outline-primary btn-sm" (click)='signupToggle.click()'>Signup</button>
+                <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+              </div> 
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
-            <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
-            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
-          </div> 
         </div>
       </div>
     </div>
