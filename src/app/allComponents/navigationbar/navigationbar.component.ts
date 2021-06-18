@@ -34,14 +34,15 @@ export class NavigationbarComponent implements OnInit {
   }
 
   UserLoginDetails=new FormGroup({
-    username:new FormControl(''),
+    email:new FormControl(''),
     password:new FormControl(''),
   })
 
   UserLogin(){
     console.log(this.UserLoginDetails.value);
     if(this.UserLoginDetails.valid){
-      this.userService.loginUser(this.UserLoginDetails.value).subscribe(()=>{
+      this.userService.loginUser(this.UserLoginDetails.value).subscribe((data)=>{
+        console.log(data);
         this.UserLoginDetails.reset();
         // this.router.navigate(['home']);
       });
