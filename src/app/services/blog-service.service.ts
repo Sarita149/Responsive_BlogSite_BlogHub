@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { RequestOptions } from 'http';
 
@@ -8,25 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class BlogServiceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   // options:RequestOptions = {}
-  createHeader(){
+  createHeader() {
     let token = localStorage.getItem("token");
-
   }
 
-  allblogs():Observable<any>{
+  allblogs(): Observable<any> {
     return this.http.get('http://localhost:3000/api/allblogs');
   }
 
 
-  allHomeData():Observable<any>{
+  allHomeData(): Observable<any> {
     return this.http.get('http://localhost:3000/api/allHomeData');
   }
 
-  addblog(blog : any):Observable<any>{
+  addblog(blog: any): Observable<any> {
     // this.createHeader();
-    return this.http.post('http://localhost:3000/api/addblog',blog);
+    return this.http.post('http://localhost:3000/api/addblog', blog);
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { AlertService } from 'src/app/services/alert.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 // import { ModalModule } from 'ngx-bootstrap';
 
@@ -13,7 +15,8 @@ import { BlogServiceService } from 'src/app/services/blog-service.service';
 export class WriteBlogComponent implements OnInit {
   modalRef: BsModalRef;
   public blogForm: FormGroup;
-  constructor( private modalService: BsModalService,private fb: FormBuilder , private blogService : BlogServiceService) { }
+  constructor(private modalService: BsModalService, private fb: FormBuilder,
+    private blogService: BlogServiceService, private alertService: AlertService, private router: Router) { }
   config = {
     placeholder: '',
     tabsize: 2,
@@ -37,7 +40,7 @@ export class WriteBlogComponent implements OnInit {
     this.initializeBlogForm()
   }
 
- 
+
   initializeBlogForm() {
     this.blogForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
@@ -56,19 +59,23 @@ export class WriteBlogComponent implements OnInit {
 
 
   submitBlogForPublish() {
-    let formValue =  this.blogForm.value;
-    // console.log('fomrValue...........',formValue);
+    let formValue = this.blogForm.value;
+
     formValue["timage"] = this.cardImageBase64;
     formValue["category"] = "tech";
 
-    console.log(formValue);
-    this.blogService.addblog(formValue).subscribe((res)=>{
-      console.log(res);
-    })
-    this.blogForm.reset();
-    this.removeImage();
-    // console.log('blog value ::::: ');
-    // console.log(this.blogForm.value);
+    this.blogService.addblog(formValue).subscribe((res) => {
+      console.log("add blog :: ", res);
+      if (res.success) {
+        this.alertService.alertMessage('Submitted', res.message, "success");
+        this.blogForm.reset();
+        this.removeImage();
+        this.router.navigate(['home']);
+      } else {
+        this.alertService.alertMessage('Error', res.message, "error");
+      }
+    });
+
   }
 
 
@@ -84,6 +91,8 @@ export class WriteBlogComponent implements OnInit {
       if (fileInput.target.files[0].size > max_size) {
         this.imageError =
           'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+        this.alertService.alertMessage('Too Big file size', 'Maximum size allowed is ' + max_size / 1000 + 'Mb', "error");
         return false;
       }
 
@@ -127,7 +136,7 @@ export class WriteBlogComponent implements OnInit {
     this.cardImageBase64 = null;
     this.isImageSaved = false;
   }
- 
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }

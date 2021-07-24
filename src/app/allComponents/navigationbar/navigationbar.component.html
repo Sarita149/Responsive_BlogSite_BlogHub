@@ -1,208 +1,190 @@
 <div class="wrap">
-  <nav class="navbar navbar-expand-lg navbar-light  nav" style="border-bottom: white 1px  solid ;">
-    <div class="row nav-row">
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="brand">
-              <a class="navbar-brand logo" href="#">Bloghub</a>
+    <nav class="navbar navbar-expand-lg navbar-light  nav" style="border-bottom: white 1px  solid ;">
+        <div class="row nav-row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="brand">
+                            <a class="navbar-brand logo" href="#">Bloghub</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <form class="form-inline" style="max-width: 500px;">
+                            <input class="form-control mr-sm-2" style="width:350px;" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-8 d-flex align-items-center">
-            <form class="form-inline" style="max-width: 500px;">
-              <input class="form-control mr-sm-2" style="width:350px;" type="search" placeholder="Search"
-                aria-label="Search">
-              <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <button class="navbar-toggler" style="background-color: white;" type="button" data-toggle="collapse"
-          data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-          aria-label="Toggle navigation">
+            <div class="col-md-6">
+                <button class="navbar-toggler" style="background-color: white;" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="divone collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" [routerLink]="['/home']" style="color: white;">Home <span
-                  class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/category']" style="color: white;">Category</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/writeblog']" style="color: white; cursor: pointer;">Write</a>
-              <!-- <a class="nav-link" (click)="openModal(writeModal,'writeblog')" style="color: white; cursor: pointer;">Write</a> -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" (click)="changeBSV()" style="color: white;">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="openModal(temp)" style="color: white; cursor: pointer;">LogIn</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Logout</a>
-            </li>
-          </ul>
+                <div class="divone collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" [routerLink]="['/home']" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/category']" style="color: white;">Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/writeblog']" style="color: white; cursor: pointer;">Write</a>
+                            <!-- <a class="nav-link" (click)="openModal(writeModal,'writeblog')" style="color: white; cursor: pointer;">Write</a> -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)" (click)="changeBSV()" style="color: white;">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="openModal(temp)" style="color: white; cursor: pointer;">LogIn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: white;">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </div>
 
 <section>
-  <ng-template #writeModal>
-    <div class="glass-container">
-      <div class="glass" style="width: 100%;">
-        <div class="container">
-          <div class="modal-header">
-            <h4 class="modal-title pull-left">Write Your Blog</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="writeblogModalRef.hide()">
+    <ng-template #writeModal>
+        <div class="glass-container">
+            <div class="glass" style="width: 100%;">
+                <div class="container">
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Write Your Blog</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="writeblogModalRef.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body" style="width: 100%;">
-            <div class="card">
-              <div class="card-body m-2">
-                <div>
-                  <div class="d-flex my-2 flex-row">
-                    <div class="">
-                      <input type="text" placeholder="Title"
-                        style="width: 100%; border: none; line-height: 4rem; font-size: 28px;">
                     </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="">
-                      <input type="text" placeholder="your text here"
-                        style="width: 100%; border: none; font-size: 20px;">
-                    </div>
-                    <div class="">
-                      <div class="row">
-                        <div>
-                          <ul class="list-unstyled d-flex flex-row" *ngIf="showME">
-                            <li class="px-1">
-                              <a href=""><i class="fa fa-headphones" style="color: black;" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="px-1">
-                              <a href=""><i class="fa fa-video-camera" style="color: black" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="px-1">
-                              <a href=""><i class="fa fa-camera" style="color:black" aria-hidden="true"></i></a>
-                            </li>
-                          </ul>
+                    <div class="modal-body" style="width: 100%;">
+                        <div class="card">
+                            <div class="card-body m-2">
+                                <div>
+                                    <div class="d-flex my-2 flex-row">
+                                        <div class="">
+                                            <input type="text" placeholder="Title" style="width: 100%; border: none; line-height: 4rem; font-size: 28px;">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <div class="">
+                                            <input type="text" placeholder="your text here" style="width: 100%; border: none; font-size: 20px;">
+                                        </div>
+                                        <div class="">
+                                            <div class="row">
+                                                <div>
+                                                    <ul class="list-unstyled d-flex flex-row" *ngIf="showME">
+                                                        <li class="px-1">
+                                                            <a href=""><i class="fa fa-headphones" style="color: black;" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li class="px-1">
+                                                            <a href=""><i class="fa fa-video-camera" style="color: black" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li class="px-1">
+                                                            <a href=""><i class="fa fa-camera" style="color:black" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div style="margin-left:12rem">
+                                                    <button class="btn btn-light" (click)="toggle()" type="button">...</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex flex-row my-2 mx-2" style="padding-top: 4rem; justify-content: space-between;">
+                                        <div class="">
+                                            <button type="button" (click)="close()" class="btn btn-secondary btn-sm px-3 py-1">Close</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-success btn-sm px-3 py-1">Post</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="margin-left:12rem">
-                          <button class="btn btn-light" (click)="toggle()" type="button">...</button>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="row d-flex flex-row my-2 mx-2" style="padding-top: 4rem; justify-content: space-between;">
-                    <div class="">
-                      <button type="button" (click)="close()" class="btn btn-secondary btn-sm px-3 py-1">Close</button>
-                    </div>
-                    <div>
-                      <button type="button" class="btn btn-success btn-sm px-3 py-1">Post</button>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </ng-template>
+    </ng-template>
 </section>
 
 <section class="Login">
-  <ng-template #temp>
-    <div class="glass-container">
-      <div class="glass" style="width: 100%;">
-        <div class="container">
-          <div class="modal-header">
-            <h4 class="modal-title pull-left">Login</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <ng-template #temp>
+        <div class="glass-container">
+            <div class="glass" style="width: 100%;">
+                <div class="container">
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Login</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body" style="width: 100%;">
-            <form [formGroup]='UserLoginDetails' (ngSubmit)='UserLogin()'>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;"
-                    aria-hidden="true"></i>&nbsp;Username</label>
-                <input id="my-input" class="form-control" type="email" name="email" formControlName='email'>
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-lock" style="color:coral;"
-                    aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="password" name="password" formControlName='password'>
-              </div>
-              <div class="modal-footer pb-0">
-                <button type="button" #toggle class="btn btn-outline-secondary btn-sm"
-                  (click)="modalRef.hide()">Close</button>
-                <button type="submit" class="btn btn-outline-success btn-sm" (click)="toggle.click()">Login</button>
-              </div>
-            </form>
-          </div>
-          <a style="cursor: pointer; color: blue; margin-left: 21rem;"
-            (click)="openModal(signupTemplate,'signupmodal')">Create Account?</a>
-          <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;"
-            (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
+                    </div>
+                    <div class="modal-body" style="width: 100%;">
+                        <form [formGroup]='UserLoginDetails' (ngSubmit)='UserLogin()'>
+                            <div class="form-group">
+                                <label><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                                <input class="form-control" type="email" name="email" formControlName='email'>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-2x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                                <input class="form-control" type="password" name="password" formControlName='password'>
+                            </div>
+                            <div class="modal-footer pb-0">
+                                <button type="button" #toggle class="btn btn-outline-secondary btn-sm" (click)="modalRef.hide()">Close</button>
+                                <button type="submit" class="btn btn-outline-success btn-sm" (click)="UserLogin()">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    <a style="cursor: pointer; color: blue; margin-left: 21rem;" (click)="openModal(signupTemplate,'signupmodal')">Create Account?</a>
+                    <a style="cursor: pointer; color: blue; margin-left: 21rem; margin-bottom: 1rem;" (click)="openModal(signupTemplate,'signupmodal')">Forget Password?</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </ng-template>
+    </ng-template>
 </section>
 
 
 <section class="Signup">
-  <ng-template #signupTemplate>
-    <div class="glass-container">
-      <div class="glass" style="width: 100%;">
-        <div class="container">
-          <div class="modal-header">
-            <h4 class="modal-title pull-left">Sign-up</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
+    <ng-template #signupTemplate>
+        <div class="glass-container">
+            <div class="glass" style="width: 100%;">
+                <div class="container">
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Sign-up</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="signUpModal.hide()">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body" style="width: 100%;">
-            <form [formGroup]='userDetails' (ngSubmit)="collectRegData()">
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;"
-                    aria-hidden="true"></i>&nbsp;Username</label>
-                <input id="my-input" class="form-control" type="text" formControlName='username' name="username">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-2x fa-envelope" style="color: skyblue;"
-                    aria-hidden="true"></i>&nbsp;Email</label>
-                <input id="my-input" placeholder="Enter your E-mail id" class="form-control" type="email"
-                  formControlName='email' name="email">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-3x fa-mobile" style="color:rgb(58, 192, 125);"
-                    aria-hidden="true"></i>&nbsp;Phone</label>
-                <input id="my-input" class="form-control" type="phone" formControlName='phone' name="phone">
-              </div>
-              <div class="form-group">
-                <label for="my-input"><i class="fa fa-3x fa-lock" style="color:coral;"
-                    aria-hidden="true"></i>&nbsp;Password</label>
-                <input id="my-input" class="form-control" type="password" formControlName='password' name="password">
-              </div>
-              <div class="modal-footer">
-                <button type="button" #signupToggle class="btn btn-outline-secondary btn-sm"
-                  (click)="signUpModal.hide()">Close</button>
-                <button type="submit" class="btn btn-outline-primary btn-sm"
-                  (click)='signupToggle.click()'>Signup</button>
-                <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
-              </div>
-            </form>
-          </div>
+                    </div>
+                    <div class="modal-body" style="width: 100%;">
+                        <form [formGroup]='userDetails' (ngSubmit)="collectRegData()">
+                            <div class="form-group">
+                                <label><i class="fa fa-2x fa-user-circle-o" style="color: slateblue;" aria-hidden="true"></i>&nbsp;Username</label>
+                                <input class="form-control" type="text" formControlName='username' name="username">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-2x fa-envelope" style="color: skyblue;" aria-hidden="true"></i>&nbsp;Email</label>
+                                <input placeholder="Enter your E-mail id" class="form-control" type="email" formControlName='email' name="email">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-3x fa-mobile" style="color:rgb(58, 192, 125);" aria-hidden="true"></i>&nbsp;Phone</label>
+                                <input class="form-control" type="phone" formControlName='phone' name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-3x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Password</label>
+                                <input class="form-control" type="password" formControlName='password' name="password">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" #signupToggle class="btn btn-outline-secondary btn-sm" (click)="signUpModal.hide()">Close</button>
+                                <button type="submit" class="btn btn-outline-primary btn-sm" (click)='collectRegData()'>Signup</button>
+                                <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </ng-template>
+    </ng-template>
 </section>
