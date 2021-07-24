@@ -16,6 +16,7 @@ import { FooterComponent } from './allComponents/footer/footer.component';
 import { CategoryComponent } from './allComponents/category/category.component';
 import { InterceptorsInterceptor } from './interceptors.interceptor';
 import { SignupComponent } from './allComponents/signup/signup.component';
+import { ViewBlogComponent } from './allComponents/view-blog/view-blog.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SignupComponent } from './allComponents/signup/signup.component';
     FooterComponent,
     CategoryComponent,
     SignupComponent,
+    ViewBlogComponent,
   ],
   imports: [
     NgxSummernoteModule,
