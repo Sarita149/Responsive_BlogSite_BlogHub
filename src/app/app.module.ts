@@ -15,6 +15,7 @@ import { WriteBlogComponent } from './allComponents/write-blog/write-blog.compon
 import { FooterComponent } from './allComponents/footer/footer.component';
 import { CategoryComponent } from './allComponents/category/category.component';
 import { InterceptorsInterceptor } from './interceptors.interceptor';
+import { SignupComponent } from './allComponents/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { InterceptorsInterceptor } from './interceptors.interceptor';
     WriteBlogComponent,
     FooterComponent,
     CategoryComponent,
+    SignupComponent,
   ],
   imports: [
     NgxSummernoteModule,

@@ -11,7 +11,7 @@ import { BlogServiceService } from './services/blog-service.service';
 @Injectable()
 export class InterceptorsInterceptor implements HttpInterceptor {
 
-  constructor(private blogServvice : BlogServiceService) {}
+  constructor(private blogServvice: BlogServiceService) { }
 
 
   // constructor(private authService: AuthService) { }
@@ -26,8 +26,8 @@ export class InterceptorsInterceptor implements HttpInterceptor {
           authorization: jwtToken,
         },
       });
+    }
     return next.handle(request);
   }
-}
 
 }
