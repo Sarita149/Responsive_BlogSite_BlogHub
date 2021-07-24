@@ -11,7 +11,7 @@
     height: auto;
     width: 100%;
     padding: 10px;
-    min-height: 175px;
+    min-height: 125px;
 }
 
 .img-space img {
@@ -40,24 +40,31 @@
     cursor: not-allowed!important;
 }
 
+
 /* ------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------- */
 
-input , textarea{
+input,
+textarea {
     width: 100%;
     border: none;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 7px;
 }
-input{
-    font-size: 38px;
+
+input {
+    font-size: 18px;
     font-weight: 700;
+    border: 1px solid black;
 }
-textarea{
+
+textarea {
     font-size: 28px;
 }
-textarea,input:focus{
+
+textarea,
+input:focus {
     border: none;
     outline: none;
 }
@@ -72,35 +79,39 @@ textarea,input:focus{
     background-color: rgb(229, 220, 238);
 }
 
-.writesec .heading-row .heading{
+
+/* .writesec .heading {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.writesec .heading-row .heading h1{
-    font-size: 8rem;
+} */
+
+.writesec .heading-row .heading h1 {
+    font-size: 4rem;
     font-family: 'Dancing Script', cursive;
     font-style: italic;
     cursor: pointer;
 }
 
-.writesec .blogcontent{
+.writesec .blogcontent {
     /* background: chocolate; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5rem;
+    padding: 2rem 5rem;
 }
-.writesec .blogcontent .box{
+
+.writesec .blogcontent .box {
     background: #fff;
     padding: 1rem;
     box-sizing: border-box;
     border-radius: 20px;
 }
-.writesec .blogcontent .box .bttn{
+
+.writesec .blogcontent .box .bttn {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 1rem 0rem;
 }

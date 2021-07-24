@@ -10,22 +10,19 @@ export class BlogServiceService {
 
   constructor(private http: HttpClient) { }
 
-  // options:RequestOptions = {}
-  createHeader() {
-    let token = localStorage.getItem("token");
-  }
-
-  allblogs(): Observable<any> {
+  public allblogs(): Observable<any> {
     return this.http.get('http://localhost:3000/api/allblogs');
   }
 
-
-  allHomeData(): Observable<any> {
+  public allHomeData(): Observable<any> {
     return this.http.get('http://localhost:3000/api/allHomeData');
   }
 
-  addblog(blog: any): Observable<any> {
-    // this.createHeader();
+  public addblog(blog: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/addblog', blog);
+  }
+
+  public getBlogById(id: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/allblogs/${id}`);
   }
 }
