@@ -37,10 +37,13 @@ export class NavigationbarComponent implements OnInit {
     email:new FormControl(''),
     password:new FormControl(''),
   })
-
   UserLogin(){
+    let user = '1';
+    localStorage.setItem('SeesionUser',user) 
     console.log(this.UserLoginDetails.value);
     if(this.UserLoginDetails.valid){
+      this.loginValid = false;
+    this.logOut = false;
       this.userService.loginUser(this.UserLoginDetails.value).subscribe((data:any)=>{
         console.log(data);
         this.UserLoginDetails.reset();
@@ -48,19 +51,32 @@ export class NavigationbarComponent implements OnInit {
         // this.router.navigate(['home']);
       });
     }
+    console.log("Logged IN",this.loginValid);
+  }
+  logout(){
+    localStorage.removeItem("token");
+    this.loginValid = true;
+    this.logOut = true;
+    console.log("Loged Out",this.loginValid);
     
   }
-
-
+  
   showME:boolean=false;
   modalRef: BsModalRef;
   signUpModal:BsModalRef;
   writeblogModalRef :BsModalRef;
   // modalService: any;
-
+  
+  loginValid:boolean = true;
+  logOut:boolean = true;
   ngOnInit(): void {
+    let logedInUser = localStorage.getItem("token");
+    if(logedInUser){
+      this.logOut = false;
+      this.loginValid = false;
+    }
   }
-
+  
   changeBSV(){
     this.helpService.setBehValue(true);
     this.router.navigate([''])

@@ -7,18 +7,27 @@
     width: 100%;
     top: 0;
     z-index: 999;
-    background:rgba(0,25,53);
+    background: #000
 }
 .nav .brand{
-    width: 50%;
-
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav .brand img{
+    width: 50px;
+    height: 50px;
 }
 .nav .brand .logo{
     /* color: burlywood; */
     color: sandybrown;
     font-size: 3rem;
     font-weight:900;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Dancing Script', cursive;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
     padding-left: 1rem;
     
 

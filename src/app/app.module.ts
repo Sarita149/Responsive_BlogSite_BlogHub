@@ -15,6 +15,7 @@ import { WriteBlogComponent } from './allComponents/write-blog/write-blog.compon
 import { FooterComponent } from './allComponents/footer/footer.component';
 import { CategoryComponent } from './allComponents/category/category.component';
 import { InterceptorsInterceptor } from './interceptors.interceptor';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { InterceptorsInterceptor } from './interceptors.interceptor';
       provide : HTTP_INTERCEPTORS,
       useClass : InterceptorsInterceptor,
       multi : true
-    }
+    },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
