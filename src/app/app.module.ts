@@ -15,6 +15,8 @@ import { WriteBlogComponent } from './allComponents/write-blog/write-blog.compon
 import { FooterComponent } from './allComponents/footer/footer.component';
 import { CategoryComponent } from './allComponents/category/category.component';
 import { InterceptorsInterceptor } from './interceptors.interceptor';
+import { SignupComponent } from './allComponents/signup/signup.component';
+import { ViewBlogComponent } from './allComponents/view-blog/view-blog.component';
 import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
@@ -27,6 +29,8 @@ import { AuthGuardService } from './auth-guard.service';
     WriteBlogComponent,
     FooterComponent,
     CategoryComponent,
+    SignupComponent,
+    ViewBlogComponent,
   ],
   imports: [
     NgxSummernoteModule,

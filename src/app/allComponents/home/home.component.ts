@@ -28,18 +28,15 @@ export class HomeComponent implements OnInit {
   public blogList: any = [];
 
   ngOnInit(): void {
+    this.getHomeData();
+
+  }
+
+  getHomeData() {
     this.blogService.allHomeData().subscribe((res: any) => {
       console.log('posted AllHomeData array --- ', res);
-      // this.content = res[0].content.replace(/<[^>]*>/g, '');
       this.blogList = res.data;
-    })
-    // this.blogService.allblogs().subscribe((res: any) => {
-    //   console.log('posted blogs array --- ', res);
-    //   // this.content = res[0].content.replace(/<[^>]*>/g, '');
-    //   // this.blogList = res.data;
-    // })
-    // this.
-
+    });
   }
 
   inputvalue: String = "Add a caption, if you like "

@@ -12,8 +12,8 @@ import { Router, RouterModule } from '@angular/router';
 @Injectable()
 export class InterceptorsInterceptor implements HttpInterceptor {
 
-  constructor(private blogServvice : BlogServiceService,private router : Router) {}
-
+  constructor(private blogServvice: BlogServiceService) { }
+  // constructor(private blogServvice : BlogServiceService,private router : Router) {}
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     // add authorization header with jwt token
     let jwtToken = localStorage.getItem('token');
@@ -27,6 +27,6 @@ export class InterceptorsInterceptor implements HttpInterceptor {
       });
     }
     return next.handle(request);
-}
+  }
 
 }

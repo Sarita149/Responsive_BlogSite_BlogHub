@@ -78,6 +78,8 @@
     }
     .site-content .posts .post-content .blogone{
         margin: 2rem 1rem  ;
+        display: flex;
+        justify-content: center;
     }    
     .blogone>.post-img .post-info span{
         margin: 10px

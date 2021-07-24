@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, Routes } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
+import { Router} from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthGuardService } from 'src/app/auth-guard.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
@@ -13,13 +14,12 @@ import { BlogServiceService } from 'src/app/services/blog-service.service';
   styleUrls: ['./write-blog.component.css']
 })
 export class WriteBlogComponent implements OnInit {
-
-
-  modalRef: BsModalRef;
+  public modalRef: BsModalRef;
   public blogForm: FormGroup;
   constructor(private modalService: BsModalService, private fb: FormBuilder, private router: Router,
-    private blogService: BlogServiceService, private Authguardservice: AuthGuardService) { }
-    config = {
+    private blogService: BlogServiceService, private Authguardservice: AuthGuardService, private alertService: AlertService) { }
+    // config = {
+  public config = {
     placeholder: '',
     tabsize: 2,
     height: '200px',
@@ -34,54 +34,65 @@ export class WriteBlogComponent implements OnInit {
     ],
     fontNames: ['Helvetica', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Roboto', 'Times']
   }
-  imageError: any;
-  cardImageBase64: any;
-  isImageSaved: boolean;
+
+  public imageError: any;
+  public cardImageBase64: any;
+  public isImageSaved: boolean;
+
+
 
   ngOnInit(): void {
     this.initializeBlogForm()
   }
 
 
-  initializeBlogForm() {
+  public initializeBlogForm() {
     this.blogForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
-      timage: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
     });
   }
 
-  setBlogFormValue() {
+  public setBlogFormValue() {
     this.blogForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
-      timage: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
     });
   }
 
 
-  submitBlogForPublish() {
+  public submitBlogForPublish() {
     let formValue = this.blogForm.value;
-    // console.log('fomrValue...........',formValue);
+
+    var plainText = formValue.description.replace(/<[^>]*>/g, '');
+    let shortDescription = plainText.slice(0, 150);
+
     formValue["timage"] = this.cardImageBase64;
     formValue["category"] = "tech";
+    formValue["views"] = 0;
+    formValue["shortDescription"] = shortDescription;
 
-    console.log(formValue);
-    this.blogService.addblog(formValue).subscribe((res) => {
-      console.log(res);
-      if(!res.success){
-        console.log('please login');
-        
-      }
-    })
-    this.blogForm.reset();
-    this.removeImage();
-    // console.log('blog value ::::: ');
-    // console.log(this.blogForm.value);
+    if (formValue.title && formValue.description && formValue.category) {
+      this.blogService.addblog(formValue).subscribe((res) => {
+        console.log("add blog :: ", res);
+        if (res.success) {
+          this.alertService.alertMessage('Submitted', res.message, "success");
+          this.blogForm.reset();
+          this.removeImage();
+          this.router.navigate(['home']);
+        } else {
+          this.alertService.alertMessage('Error', res.message, "error");
+        }
+      });
+    } else {
+      this.alertService.alertMessage('Error', 'Title, Category and Description are required !', "error");
+    }
   }
 
 
-  fileChangeEvent(fileInput: any) {
+  public fileChangeEvent(fileInput: any) {
     this.imageError = null;
     if (fileInput.target.files && fileInput.target.files[0]) {
       // Size Filter Bytes
@@ -93,6 +104,8 @@ export class WriteBlogComponent implements OnInit {
       if (fileInput.target.files[0].size > max_size) {
         this.imageError =
           'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+        this.alertService.alertMessage('Too Big file size', 'Maximum size allowed is ' + max_size / 1000 + 'Mb', "error");
         return false;
       }
 
@@ -132,12 +145,12 @@ export class WriteBlogComponent implements OnInit {
     }
   }
 
-  removeImage() {
+  public removeImage() {
     this.cardImageBase64 = null;
     this.isImageSaved = false;
   }
 
-  openModal(template: TemplateRef<any>) {
+  public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 }
