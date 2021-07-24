@@ -4,6 +4,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSummernoteModule } from 'ngx-summernote';
+// import { MatDividerModule } from '@angular/material/divider';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +42,8 @@ import { AuthGuardService } from './auth-guard.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    // BrowserAnimationsModule,
+    // MatDividerModule,
     ModalModule.forRoot()
   ],
   providers: [
