@@ -1,0 +1,106 @@
+.image-wrap {
+    padding: 10px;
+    border: solid 1px #e0e0e0;
+    display: inline-block;
+}
+
+.img-space {
+    border: dashed 1px #d3d3d3;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    min-height: 175px;
+}
+
+.img-space img {
+    display: block;
+    width: 100%;
+    height: 70%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.fileInputProfileWrap {
+    width: 100%;
+    height: auto;
+}
+
+.fileInputProfile {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    opacity: 0;
+}
+
+.fileInputProfile[disabled]+.img-space {
+    pointer-events: none;
+    cursor: not-allowed!important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------- */
+
+input , textarea{
+    width: 100%;
+    border: none;
+    overflow: hidden;
+    border-radius: 20px;
+}
+input{
+    font-size: 38px;
+    font-weight: 700;
+}
+textarea{
+    font-size: 28px;
+}
+textarea,input:focus{
+    border: none;
+    outline: none;
+}
+
+.writesec {
+    width: 100%;
+    background: green;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(229, 220, 238);
+}
+
+.writesec .heading-row .heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.writesec .heading-row .heading h1{
+    font-size: 8rem;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.writesec .blogcontent{
+    /* background: chocolate; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+.writesec .blogcontent .box{
+    background: #fff;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.writesec .blogcontent .box .bttn{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 1rem 0rem;
+}

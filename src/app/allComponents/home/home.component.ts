@@ -4,6 +4,7 @@ import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { HelperService } from 'src/app/services/helper.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -23,46 +24,55 @@ export class HomeComponent implements OnInit {
   vediosUploads: BsModalRef<Object>;
 
   // customBtn:boolean=false;
-  constructor(private router: Router, private modalService: BsModalService, private blogService: BlogServiceService) { }
+  constructor(private router: Router, private modalService: BsModalService, private blogService: BlogServiceService, public domSan: DomSanitizer) { }
+  public blogList: any = [];
 
   ngOnInit(): void {
-    this.blogService.allblogs().subscribe((res)=>{
-      console.log(res);
-      
+    this.blogService.allHomeData().subscribe((res: any) => {
+      console.log('posted AllHomeData array --- ', res);
+      // this.content = res[0].content.replace(/<[^>]*>/g, '');
+      this.blogList = res.data;
     })
+    // this.blogService.allblogs().subscribe((res: any) => {
+    //   console.log('posted blogs array --- ', res);
+    //   // this.content = res[0].content.replace(/<[^>]*>/g, '');
+    //   // this.blogList = res.data;
+    // })
+    // this.
+
   }
 
   inputvalue: String = "Add a caption, if you like "
   url = "";
-  file:any = '';
-  filename:any
-  displayCnclBtn:boolean=false;
-  onDeselect(value) { 
+  file: any = '';
+  filename: any
+  displayCnclBtn: boolean = false;
+  onDeselect(value) {
     this.url = '';
     this.file = '';
-    this.filename='';
-    this.displayCnclBtn=!this.displayCnclBtn;
+    this.filename = '';
+    this.displayCnclBtn = !this.displayCnclBtn;
     // console.log(this.displayCnclBtn);
-    
+
   }
 
   fileSelect(evt) {
-    // console.log('event :: ', evt);
+    console.log('event :: ', evt);
     this.file = evt.target.files[0];
-    this.filename=evt.target.files[0].name;
+    this.filename = evt.target.files[0].name;
     console.log(this.filename);
     let base64: any = "";
     let reader = new FileReader();
     reader.readAsDataURL(this.file);
     reader.onload = (e: any) => {
-      // console.log('onload :: ',e);/
+      console.log('onload :: ', e);
       base64 = e.target.result;
       this.url = base64;
       // console.log(base64);
     }
-    this.displayCnclBtn=!this.displayCnclBtn;
+    this.displayCnclBtn = !this.displayCnclBtn;
     // console.log(this.displayCnclBtn);
-    
+
   }
 
   toggle() {

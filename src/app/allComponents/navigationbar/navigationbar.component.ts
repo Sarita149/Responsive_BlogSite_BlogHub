@@ -41,9 +41,10 @@ export class NavigationbarComponent implements OnInit {
   UserLogin(){
     console.log(this.UserLoginDetails.value);
     if(this.UserLoginDetails.valid){
-      this.userService.loginUser(this.UserLoginDetails.value).subscribe((data)=>{
+      this.userService.loginUser(this.UserLoginDetails.value).subscribe((data:any)=>{
         console.log(data);
         this.UserLoginDetails.reset();
+        localStorage.setItem("token",data.token);
         // this.router.navigate(['home']);
       });
     }
@@ -62,7 +63,7 @@ export class NavigationbarComponent implements OnInit {
 
   changeBSV(){
     this.helpService.setBehValue(true);
-    this.router.navigate(['home'])
+    this.router.navigate([''])
   }
 
   toggle(){

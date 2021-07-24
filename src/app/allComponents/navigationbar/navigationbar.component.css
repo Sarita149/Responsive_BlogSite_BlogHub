@@ -21,6 +21,10 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-left: 1rem;
     
+
+}
+.nav-row{
+    width: 100%;
 }
 ul{
     /* text-align: center; */
@@ -38,7 +42,7 @@ li{
     color: beige;
 } */
 ul li a:hover {
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     background-color:black;
     border-radius: 5px;
   }

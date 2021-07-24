@@ -7,8 +7,8 @@ import { WriteBlogComponent } from './allComponents/write-blog/write-blog.compon
 
 const routes: Routes = [
   // {path:'', component:NavbarComponent},
-  {path:'home',component:HomeComponent},
   {path: '', component: LandingPageComponent },
+  {path:'home',component:HomeComponent},
   {path:'writeblog',component:WriteBlogComponent},
   {path:'category',component:CategoryComponent}
 

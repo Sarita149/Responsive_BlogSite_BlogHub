@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { NavigationbarComponent } from './allComponents/navigationbar/navigation
 import { WriteBlogComponent } from './allComponents/write-blog/write-blog.component';
 import { FooterComponent } from './allComponents/footer/footer.component';
 import { CategoryComponent } from './allComponents/category/category.component';
+import { InterceptorsInterceptor } from './interceptors.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,20 @@ import { CategoryComponent } from './allComponents/category/category.component';
     CategoryComponent,
   ],
   imports: [
+    NgxSummernoteModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : InterceptorsInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

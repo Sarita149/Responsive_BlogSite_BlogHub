@@ -3,8 +3,8 @@
   <section class="contain">
     <div class="site-content">
       <div class="posts">
-        <div class="post-content"> 
-          <main class="menu">
+        <div class="post-content">
+          <!-- <main class="menu">
             <div class="features">
               <ul >
                 <li>
@@ -23,10 +23,6 @@
                   <a (click)="openModal(linksTemplate,'links')"><i class="fa fa-3x fa-link" style="color: rgb(118, 248, 118);" aria-hidden="true"></i></a><br>
                     <span>Links</span>
                 </li>
-                <!-- <li>
-                  <a (click)="openModal(chatTemplate,'chat')"><i class="fa fa-3x  fa-comments-o" style="color: rgb(79, 195, 241);" aria-hidden="true"></i></a><br>
-                    <span>Chat</span>
-                </li> -->
                 <li>
                   <a (click)="openModal(audioTemplate,'audio')"><i class="fa fa-3x fa-headphones" style="color: blueviolet;" aria-hidden="true"></i></a><br>
                     <span>Audio</span>
@@ -37,37 +33,50 @@
                 </li>
               </ul>
             </div>
-          </main>
-          <div class="blogone" *ngFor="let blog of bloglist">
+          </main> -->
+
+
+          <!--  -->
+
+          <div class="blogone" *ngFor="let blog of blogList">
             <div class="post-img">
               <div>
-                <img src="{{blog.image}}" class="img" alt="" width="100%">
+                <img [src]="domSan.bypassSecurityTrustResourceUrl(blog.timage)" class="img" alt="" width="100%">
               </div>
             </div>
             <div class="post-info flex-row">&nbsp;
               <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;
-              <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
+              <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{blog.createdAt}}</span>
               <span>&nbsp;&nbsp;2 Comments</span>
             </div>
             <div class="post-title">
               <a href="#">{{blog.title}}</a>
-              <p>{{blog.description}}</p>
+              <br>
+              <p [innerHTML]="blog.content"></p>
               <button class="btn post-btn">Read More&nbsp;<i class="fa fa-arrow-right"></i></button>
             </div>
             <hr style="color: aliceblue; border: 1px solid grey;">
-          </div> 
+          </div>
+
+
+          <!--  -->
+
         </div>
         <aside class="sidebar">
           <div class="checkout">
-            <h4 style="color: white; font-family: poppins; font-weight: 900; line-height: 3rem;">Check out these blogs</h4>
+            <h4 style="color: white; font-family: poppins; font-weight: 900; line-height: 3rem;">Check out these blogs
+            </h4>
             <hr style="color: aliceblue; border: 1px solid grey;">
             <div class="checkout-blog">
               <div class="b1  flex-row">
                 <div>
-                  <img src="../../../assets/flower1.png" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
+                  <img src="../../../assets/flower1.png" alt=""
+                    style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
                 </div>
                 <div class="info py-4 px-2">
-                  <a href=""><h5 class="name" style="color: white;">Beautiful Flowers</h5></a>
+                  <a href="">
+                    <h5 class="name" style="color: white;">Beautiful Flowers</h5>
+                  </a>
                   <p>Lorem</p>
                 </div>
               </div>
@@ -75,10 +84,13 @@
             <div class="checkout-blog">
               <div class="b1 flex-row">
                 <div>
-                  <img src="../../../assets/nature.jpg" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
+                  <img src="../../../assets/nature.jpg" alt=""
+                    style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
                 </div>
                 <div class="info" style="padding: 10px;">
-                  <a href=""><h3 class="name" style="color: white;">Nature</h3></a>
+                  <a href="">
+                    <h3 class="name" style="color: white;">Nature</h3>
+                  </a>
                   <p>Lorem</p>
                 </div>
               </div>
@@ -99,10 +111,11 @@
                 <span>&nbsp;&nbsp;2 Comments</span>
               </div>
               <div class="post-title">
-                <a href="#">Most of us are well aware of the many health benefits of 
-                  exercise, but finding the discipline to not only start training but to also stick with it is often the hard part. </a>
+                <a href="#">Most of us are well aware of the many health benefits of
+                  exercise, but finding the discipline to not only start training but to also stick with it is often the
+                  hard part. </a>
               </div>
-            </div> 
+            </div>
             <div class="blogone">
               <div class="post-img">
                 <div>
@@ -115,9 +128,10 @@
                 <span>&nbsp;&nbsp;2 Comments</span>
               </div>
               <div class="post-title">
-                <a href="#">Music, style, and culture site relating relevant news and topics from around the world and within all genres. The latest on music, artist drama, styles, and what artists are wearing.</a>
+                <a href="#">Music, style, and culture site relating relevant news and topics from around the world and
+                  within all genres. The latest on music, artist drama, styles, and what artists are wearing.</a>
               </div>
-            </div> 
+            </div>
             <div class="blogone">
               <div class="post-img">
                 <div>
@@ -130,10 +144,11 @@
                 <span>&nbsp;&nbsp;2 Comments</span>
               </div>
               <div class="post-title">
-                <a href="#">I’m not going to lie: I think I have a pretty good travel blog. (You probably do too if you’re here.)</a>
+                <a href="#">I’m not going to lie: I think I have a pretty good travel blog. (You probably do too if
+                  you’re here.)</a>
               </div>
-            </div> 
-            
+            </div>
+
           </div>
           <div class="category" id="category">
             <h4>Category</h4>
@@ -166,16 +181,16 @@
           </div>
         </aside>
       </div>
-      
+
       <app-footer id="footer"></app-footer>
     </div>
   </section>
   <!-- --------------Glass-container----------------------------- -->
-  
+
 </div>
 
 <!-- --------------------Modals------------------- -->
-<section class="text">
+<!-- <section class="text">
   <ng-template #textTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -236,10 +251,10 @@
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 
 
-<section class="photo">
+<!-- <section class="photo">
   <ng-template #photoTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -273,15 +288,15 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
             <button type="button" class="btn btn-outline-primary btn-sm">Post</button>
-            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+          
           </div> 
         </div>
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 
-<section class="quote">
+<!-- <section class="quote">
   <ng-template #quoteTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -309,9 +324,9 @@
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 
-<section class="links">
+<!-- <section class="links">
   <ng-template #linksTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -339,7 +354,7 @@
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 
 <!-- <section class="chat">
   <ng-template #chatTemplate >
@@ -379,7 +394,7 @@
   </ng-template>
 </section> -->
 
-<section class="audio">
+<!-- <section class="audio">
   <ng-template #audioTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -407,9 +422,9 @@
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 
-<section class="vedio">
+<!-- <section class="vedio">
   <ng-template #vedioTemplate >
     <div class="glass-container">
       <div class="glass" style="width: 100%;">
@@ -439,11 +454,11 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary btn-sm">Close</button>
             <button type="button" class="btn btn-outline-primary btn-sm">Signup</button>
-            <!-- <a (click)="openModal2(templateNested)">Create Account</a> -->
+            
           </div> 
         </div>
       </div>
     </div>
   </ng-template>
-</section>
+</section> -->
 <!-- -------------------x------------modals------------x--------------- -->
