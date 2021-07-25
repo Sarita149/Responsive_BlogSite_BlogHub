@@ -3,11 +3,13 @@
     <section class="contain">
         <div class="site-content">
             <div class="posts">
+
+                <!-- main container -->
                 <div class="post-content">
 
                     <div class="blogone" style="max-width: 900px;" *ngFor="let blog of blogList">
                         <div class="post-img">
-                            <div >
+                            <div>
                                 <img [src]="domSan.bypassSecurityTrustResourceUrl(blog?.timage)" class="img" alt="" height="400px" width="100%">
                             </div>
                         </div>
@@ -25,7 +27,52 @@
                     </div>
 
 
+                    <div class="blogone">
+
+                        <div class="post-title">
+                            <p>{{'blog?.title | uppercase'}}</p>
+                            <p>{{'blog?.shortDescription '}}</p>
+                            <nav style="margin: auto">
+                                <ul class="pagination  pg-amber justify-content-center" *ngIf="pager?.pages && pager?.pages?.length">
+                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                                        <a class="page-link waves-effect" (click)="setHomeData(1)">First</a>
+                                    </li>
+                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                                        <a class="page-link" (click)="setHomeData(pager?.currentPage - 1)">Previous</a>
+                                    </li>
+                                    <li class="page-item" *ngFor="let page of pager?.pages" [ngClass]="{active:pager?.currentPage === page}">
+                                        <a class="page-link" (click)="setHomeData(page)">{{page}}</a>
+                                    </li>
+                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                                        <a class="page-link" (click)="setHomeData(pager?.currentPage + 1)">Next</a>
+                                    </li>
+                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                                        <a class="page-link" (click)="setHomeData(pager?.totalPages)">Last</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!-- <button class="btn post-btn" [routerLink]="['/read/',blog?._id]">Read More&nbsp;<i class="fa fa-arrow-right"></i></button> -->
+                        </div>
+
+                        <!--  pagination -->
+                        <div class="post-title">
+
+                        </div>
+
+
+
+
+                        <!-- end pagination -->
+                    </div>
+
+
+
                 </div>
+                <!-- end main container -->
+
+
+
+                <!-- right side-bar  -->
                 <aside class="sidebar">
                     <div class="checkout">
                         <h4 style="color: white; font-family: poppins; font-weight: 900; line-height: 3rem;">Check out these blogs
@@ -142,13 +189,16 @@
                         </div>
                     </div>
                 </aside>
+                <!-- end right side-bar  -->
             </div>
 
-            <app-footer id="footer"></app-footer>
+
+
+
         </div>
     </section>
     <!-- --------------Glass-container----------------------------- -->
-
+    <app-footer id="footer"></app-footer>
 </div>
 
 <!-- --------------------Modals------------------- -->

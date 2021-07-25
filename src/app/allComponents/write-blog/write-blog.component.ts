@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { AuthGuardService } from 'src/app/auth-guard.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 // import { ModalModule } from 'ngx-bootstrap';
 
@@ -17,8 +16,8 @@ export class WriteBlogComponent implements OnInit {
   public modalRef: BsModalRef;
   public blogForm: FormGroup;
   constructor(private modalService: BsModalService, private fb: FormBuilder, private router: Router,
-    private blogService: BlogServiceService, private Authguardservice: AuthGuardService, private alertService: AlertService) { }
-    // config = {
+    private blogService: BlogServiceService, private alertService: AlertService) { }
+  // config = {
   public config = {
     placeholder: '',
     tabsize: 2,
