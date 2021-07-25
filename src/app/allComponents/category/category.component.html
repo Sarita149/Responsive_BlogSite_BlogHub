@@ -1,37 +1,82 @@
-<section>
-    <app-navigationbar></app-navigationbar>
-</section>
-<!-- ---------------------header--------------------------------- -->
-<section>
-    <div class="container-fluid">
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <img src="../../../assets/header3.jpg" alt="" class="img-fluid max-width:100%">
+<div style="background-color: whitesmoke">
+    <!-- ---------------------header--------------------------------- -->
+    <section>
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <img src="../../../assets/header3.jpg" alt="" class="img-fluid max-width:100%">
                     <div class="carousel-caption">
                         <h1>Categories</h1>
                     </div>
-            </div>
-        </div>    
-    </div>
-</section>
-<!-- -----------x-----------header--------------x----------------- -->
-<section>
-    <div class="container">
-        <div class="row my-4 pt-4">
-            <div class="col-lg-12">
-                <h1 style="text-align: center;">All Blog Categories</h1>
+                </div>
             </div>
         </div>
-        <div class="row my-4 pb-4">
-            <div *ngFor="let cat of category" class="col-lg-3 col-md-4 col-sm-6 img-thumbnail  my-2">
-                <img src="{{cat.image}}" class="img-thumbnail" alt="">
-                <h3><a href="#" class="nav-link">{{cat.title}}</a></h3>
+    </section>
+    <!-- -----------x-----------header--------------x----------------- -->
+    <section>
+        <div class="container">
+            <div class="row my-4 pb-4">
+                <div *ngFor="let cat of categoryList" style="cursor: pointer;" class="col-lg-3 col-md-4 col-sm-6 img-thumbnail m-2">
+                    <img [src]="cat?.catImage" class="img-thumbnail" [alt]="cat?.categoryName" [routerLink]="['/blogsbycategory',cat?._id]">
+                    <h3 [routerLink]="['/blogsbycategory',cat?._id]" class="nav-link">{{cat?.categoryName}}</h3>
+                </div>
+            </div>
+
+            <!-- add new  -->
+            <div class="row my-4 pb-4" (click)="openModal(temp,'addCategory')">
+                <div style="cursor: pointer;" class="col-lg-3 col-md-4 col-sm-6 img-thumbnail  my-2">
+                    <img src="../../../assets/cat1.jpg" class="img-thumbnail" alt="">
+                    <h3 class="nav-link"> Add New Category </h3>
+                </div>
+            </div>
+            <!-- add new  -->
+        </div>
+    </section>
+    <!-- -----------------x---------header----------x------------------ -->
+
+</div>
+
+
+<ng-template #temp>
+    <div class="glass-container">
+        <div class="glass" style="width: 100%;">
+            <div class="container">
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Add Category</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="width: 100%;">
+
+                    <form (ngSubmit)="addNewCategory()">
+                        <fieldset class="form-group">
+                            <label style="font-size: 20px;font-weight: 700;">Upload Image</label> {{imageError}}
+                            <div class="custom-file fileInputProfileWrap">
+                                <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                                <div class="img-space">
+                                    <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                        <img [src]="cardImageBase64" />
+                                    </ng-container>
+                                    <ng-template #elseTemplate>
+
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <a class="btn btn-danger" style="float: right;" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+                        <br>
+                        <div class="form-group">
+                            <label><i class="fa fa-2x fa-lock" style="color:coral;" aria-hidden="true"></i>&nbsp;Catgeory Name</label>
+                            <input name="categoryName" [(ngModel)]="categoryName" class="form-control">
+                        </div>
+                        <div class="modal-footer pb-0">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="modalRef.hide()">Close</button>
+                            <button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<!-- -----------------x---------header----------x------------------ -->
-<!-- -------------------------footer------------------------------ -->
-<section>
-    <app-footer id="footer"></app-footer>
-</section>
+</ng-template>

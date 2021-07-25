@@ -19,6 +19,7 @@ import { InterceptorsInterceptor } from './interceptors.interceptor';
 import { SignupComponent } from './allComponents/signup/signup.component';
 import { ViewBlogComponent } from './allComponents/view-blog/view-blog.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ListByCategoryComponent } from './allComponents/list-by-category/list-by-category.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     CategoryComponent,
     SignupComponent,
     ViewBlogComponent,
+    ListByCategoryComponent,
   ],
   imports: [
     NgxSummernoteModule,

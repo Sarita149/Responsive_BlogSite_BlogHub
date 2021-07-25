@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row" style="height: 7rem;">
+        <div class="col-md-12"> </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-9 col-sm-9 offset-lg-1 offset-md-1 offset-sm-1">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 blogone" *ngFor="let blog of blogList">
+                    <div class="post-img">
+                        <div>
+                            <img [src]="domSan.bypassSecurityTrustResourceUrl(blog?.timage)" class="img" alt="" height="400px" width="100%">
+                        </div>
+                    </div>
+                    <div class="post-info flex-row">&nbsp;
+                        <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;{{blog.author.username ? blog.author.username : 'User'}}</span>&nbsp;
+                        <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{blog?.createdAt | date}}</span>
+                        <span>&nbsp;&nbsp;2 Comments</span>
+                    </div>
+                    <div class="post-title">
+                        <p>{{blog?.title | uppercase}}</p>
+                        <p>{{blog?.shortDescription }}</p>
+                        <button class="btn post-btn" [routerLink]="['/read/',blog?._id]">Read More&nbsp;<i class="fa fa-arrow-right"></i></button>
+                    </div>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-10 col-sm-10 offset-md-1 offset-sm-1">
+                    <nav style="margin: auto">
+                        <ul class="pagination  pg-amber justify-content-center" *ngIf="pager?.pages && pager?.pages?.length">
+                            <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                                <a class="page-link waves-effect" (click)="setPage(1)">First</a>
+                            </li>
+                            <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                                <a class="page-link" (click)="setPage(pager?.currentPage - 1)">Previous</a>
+                            </li>
+                            <li class="page-item" *ngFor="let page of pager?.pages" [ngClass]="{active:pager?.currentPage === page}">
+                                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                            </li>
+                            <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                                <a class="page-link" (click)="setPage(pager?.currentPage + 1)">Next</a>
+                            </li>
+                            <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                                <a class="page-link" (click)="setPage(pager?.totalPages)">Last</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2">
+            <h3>All Categories</h3>
+        </div>
+    </div>
+</div>

@@ -1,205 +1,189 @@
-<div class="main" style="background-color:  rgba(0,25,53); width: 100%; height: 100%;">
-    <app-navigationbar></app-navigationbar>
-    <section class="contain">
-        <div class="site-content">
-            <div class="posts">
+<section class="contain">
+    <div class="site-content">
+        <div class="posts">
 
-                <!-- main container -->
-                <div class="post-content">
+            <!-- main container -->
+            <div class="post-content">
 
-                    <div class="blogone" style="max-width: 900px;" *ngFor="let blog of blogList">
-                        <div class="post-img">
+                <div class="blogone" style="max-width: 900px;" *ngFor="let blog of blogList">
+                    <div class="post-img">
+                        <div>
+                            <img [src]="domSan.bypassSecurityTrustResourceUrl(blog?.timage)" class="img" alt="" height="400px" width="100%">
+                        </div>
+                    </div>
+                    <div class="post-info flex-row">&nbsp;
+                        <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;{{blog.author.username ? blog.author.username : 'User'}}</span>&nbsp;
+                        <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{blog?.createdAt | date}}</span>
+                        <span>&nbsp;&nbsp;2 Comments</span>
+                    </div>
+                    <div class="post-title">
+                        <p>{{blog?.title | uppercase}}</p>
+                        <p>{{blog?.shortDescription }}</p>
+                        <button class="btn post-btn" [routerLink]="['/read/',blog?._id]">Read More&nbsp;<i class="fa fa-arrow-right"></i></button>
+                    </div>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                </div>
+
+
+                <!--  pagination -->
+
+                <nav style="margin: auto">
+                    <ul class="pagination  pg-amber justify-content-center" *ngIf="pager?.pages && pager?.pages?.length">
+                        <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                            <a class="page-link waves-effect" (click)="setHomeData(1)">First</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
+                            <a class="page-link" (click)="setHomeData(pager?.currentPage - 1)">Previous</a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pager?.pages" [ngClass]="{active:pager?.currentPage === page}">
+                            <a class="page-link" (click)="setHomeData(page)">{{page}}</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                            <a class="page-link" (click)="setHomeData(pager?.currentPage + 1)">Next</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
+                            <a class="page-link" (click)="setHomeData(pager?.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+                <!-- end pagination -->
+
+
+            </div>
+            <!-- end main container -->
+
+
+
+            <!-- right side-bar  -->
+            <aside class="sidebar">
+                <div class="checkout">
+                    <h4 style="color: white; font-family: poppins; font-weight: 900; line-height: 3rem;">Check out these blogs
+                    </h4>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                    <div class="checkout-blog">
+                        <div class="b1  flex-row">
                             <div>
-                                <img [src]="domSan.bypassSecurityTrustResourceUrl(blog?.timage)" class="img" alt="" height="400px" width="100%">
+                                <img src="../../../assets/flower1.png" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
+                            </div>
+                            <div class="info py-4 px-2">
+                                <a href="">
+                                    <h5 class="name" style="color: white;">Beautiful Flowers</h5>
+                                </a>
+                                <p>Lorem</p>
                             </div>
                         </div>
-                        <div class="post-info flex-row">&nbsp;
-                            <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;{{blog.author.username ? blog.author.username : 'User'}}</span>&nbsp;
-                            <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{blog?.createdAt | date}}</span>
+                    </div>
+                    <div class="checkout-blog">
+                        <div class="b1 flex-row">
+                            <div>
+                                <img src="../../../assets/nature.jpg" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
+                            </div>
+                            <div class="info" style="padding: 10px;">
+                                <a href="">
+                                    <h3 class="name" style="color: white;">Nature</h3>
+                                </a>
+                                <p>Lorem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popular-post">
+                    <h4>Popular Posts</h4>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                    <div class="blogone">
+                        <div class="post-img">
+                            <div>
+                                <img src="../../../assets/cat-fitnes.jpg" class="img" alt="" width="100%">
+                            </div>
+                        </div>
+                        <div class="post-info flex-row">
+                            <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
+                            <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
                             <span>&nbsp;&nbsp;2 Comments</span>
                         </div>
                         <div class="post-title">
-                            <p>{{blog?.title | uppercase}}</p>
-                            <p>{{blog?.shortDescription }}</p>
-                            <button class="btn post-btn" [routerLink]="['/read/',blog?._id]">Read More&nbsp;<i class="fa fa-arrow-right"></i></button>
+                            <a href="#">Most of us are well aware of the many health benefits of
+                exercise, but finding the discipline to not only start training but to also stick with it is often the
+                hard part. </a>
                         </div>
-                        <hr style="color: aliceblue; border: 1px solid grey;">
                     </div>
-
-
                     <div class="blogone">
-
-                        <div class="post-title">
-                            <p>{{'blog?.title | uppercase'}}</p>
-                            <p>{{'blog?.shortDescription '}}</p>
-                            <nav style="margin: auto">
-                                <ul class="pagination  pg-amber justify-content-center" *ngIf="pager?.pages && pager?.pages?.length">
-                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
-                                        <a class="page-link waves-effect" (click)="setHomeData(1)">First</a>
-                                    </li>
-                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
-                                        <a class="page-link" (click)="setHomeData(pager?.currentPage - 1)">Previous</a>
-                                    </li>
-                                    <li class="page-item" *ngFor="let page of pager?.pages" [ngClass]="{active:pager?.currentPage === page}">
-                                        <a class="page-link" (click)="setHomeData(page)">{{page}}</a>
-                                    </li>
-                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
-                                        <a class="page-link" (click)="setHomeData(pager?.currentPage + 1)">Next</a>
-                                    </li>
-                                    <li class="page-item" [ngClass]="{disabled:pager?.currentPage === pager?.totalPages}">
-                                        <a class="page-link" (click)="setHomeData(pager?.totalPages)">Last</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <!-- <button class="btn post-btn" [routerLink]="['/read/',blog?._id]">Read More&nbsp;<i class="fa fa-arrow-right"></i></button> -->
+                        <div class="post-img">
+                            <div>
+                                <img src="../../../assets/cat-music.jpg" class="img" alt="" width="100%">
+                            </div>
                         </div>
-
-                        <!--  pagination -->
-                        <div class="post-title">
-
+                        <div class="post-info flex-row">
+                            <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
+                            <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
+                            <span>&nbsp;&nbsp;2 Comments</span>
                         </div>
-
-
-
-
-                        <!-- end pagination -->
+                        <div class="post-title">
+                            <a href="#">Music, style, and culture site relating relevant news and topics from around the world and
+                within all genres. The latest on music, artist drama, styles, and what artists are wearing.</a>
+                        </div>
                     </div>
-
-
+                    <div class="blogone">
+                        <div class="post-img">
+                            <div>
+                                <img src="../../../assets/travel-blog.jpg" class="img" alt="" width="100%">
+                            </div>
+                        </div>
+                        <div class="post-info flex-row">
+                            <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
+                            <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
+                            <span>&nbsp;&nbsp;2 Comments</span>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">I’m not going to lie: I think I have a pretty good travel blog. (You probably do too if
+                you’re here.)</a>
+                        </div>
+                    </div>
 
                 </div>
-                <!-- end main container -->
-
-
-
-                <!-- right side-bar  -->
-                <aside class="sidebar">
-                    <div class="checkout">
-                        <h4 style="color: white; font-family: poppins; font-weight: 900; line-height: 3rem;">Check out these blogs
-                        </h4>
-                        <hr style="color: aliceblue; border: 1px solid grey;">
-                        <div class="checkout-blog">
-                            <div class="b1  flex-row">
-                                <div>
-                                    <img src="../../../assets/flower1.png" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
-                                </div>
-                                <div class="info py-4 px-2">
-                                    <a href="">
-                                        <h5 class="name" style="color: white;">Beautiful Flowers</h5>
-                                    </a>
-                                    <p>Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout-blog">
-                            <div class="b1 flex-row">
-                                <div>
-                                    <img src="../../../assets/nature.jpg" alt="" style="width: 100px; height: 100px; border-radius: 10rem; padding: 10px;">
-                                </div>
-                                <div class="info" style="padding: 10px;">
-                                    <a href="">
-                                        <h3 class="name" style="color: white;">Nature</h3>
-                                    </a>
-                                    <p>Lorem</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="category" id="category">
+                    <h4>Category</h4>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                    <ul class="category-list">
+                        <li class="list-items">
+                            <a href="">Technology</a>
+                        </li>
+                        <li class="list-items">
+                            <a href="">Lifestyle</a>
+                        </li>
+                        <li class="list-items">
+                            <a href="">Food</a>
+                        </li>
+                        <li class="list-items">
+                            <a href="">Animal</a>
+                        </li>
+                        <li class="list-items">
+                            <a href="">Shopping</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <h4>Newsletter</h4>
+                    <hr style="color: aliceblue; border: 1px solid grey;">
+                    <div class="form-element">
+                        <input type="text" class="input-element" placeholder="Email">
+                        <button class="btn form-btn" style="width: 100%;">Subscribe</button>
                     </div>
-                    <div class="popular-post">
-                        <h4>Popular Posts</h4>
-                        <hr style="color: aliceblue; border: 1px solid grey;">
-                        <div class="blogone">
-                            <div class="post-img">
-                                <div>
-                                    <img src="../../../assets/cat-fitnes.jpg" class="img" alt="" width="100%">
-                                </div>
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
-                                <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
-                                <span>&nbsp;&nbsp;2 Comments</span>
-                            </div>
-                            <div class="post-title">
-                                <a href="#">Most of us are well aware of the many health benefits of
-                  exercise, but finding the discipline to not only start training but to also stick with it is often the
-                  hard part. </a>
-                            </div>
-                        </div>
-                        <div class="blogone">
-                            <div class="post-img">
-                                <div>
-                                    <img src="../../../assets/cat-music.jpg" class="img" alt="" width="100%">
-                                </div>
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
-                                <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
-                                <span>&nbsp;&nbsp;2 Comments</span>
-                            </div>
-                            <div class="post-title">
-                                <a href="#">Music, style, and culture site relating relevant news and topics from around the world and
-                  within all genres. The latest on music, artist drama, styles, and what artists are wearing.</a>
-                            </div>
-                        </div>
-                        <div class="blogone">
-                            <div class="post-img">
-                                <div>
-                                    <img src="../../../assets/travel-blog.jpg" class="img" alt="" width="100%">
-                                </div>
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Admin</span>&nbsp;&nbsp;
-                                <span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;April 09 2021</span>
-                                <span>&nbsp;&nbsp;2 Comments</span>
-                            </div>
-                            <div class="post-title">
-                                <a href="#">I’m not going to lie: I think I have a pretty good travel blog. (You probably do too if
-                  you’re here.)</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="category" id="category">
-                        <h4>Category</h4>
-                        <hr style="color: aliceblue; border: 1px solid grey;">
-                        <ul class="category-list">
-                            <li class="list-items">
-                                <a href="">Technology</a>
-                            </li>
-                            <li class="list-items">
-                                <a href="">Lifestyle</a>
-                            </li>
-                            <li class="list-items">
-                                <a href="">Food</a>
-                            </li>
-                            <li class="list-items">
-                                <a href="">Animal</a>
-                            </li>
-                            <li class="list-items">
-                                <a href="">Shopping</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="newsletter">
-                        <h4>Newsletter</h4>
-                        <hr style="color: aliceblue; border: 1px solid grey;">
-                        <div class="form-element">
-                            <input type="text" class="input-element" placeholder="Email">
-                            <button class="btn form-btn" style="width: 100%;">Subscribe</button>
-                        </div>
-                    </div>
-                </aside>
-                <!-- end right side-bar  -->
-            </div>
-
-
-
-
+                </div>
+            </aside>
+            <!-- end right side-bar  -->
         </div>
-    </section>
-    <!-- --------------Glass-container----------------------------- -->
-    <app-footer id="footer"></app-footer>
-</div>
+
+
+
+
+    </div>
+</section>
+<!-- --------------Glass-container----------------------------- -->
+
+
 
 <!-- --------------------Modals------------------- -->
 <!-- <section class="text">
