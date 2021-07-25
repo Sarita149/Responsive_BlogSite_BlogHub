@@ -28,10 +28,9 @@
 
 
                     <div class="blogone">
-
                         <div class="post-title">
-                            <p>{{'blog?.title | uppercase'}}</p>
-                            <p>{{'blog?.shortDescription '}}</p>
+                            <!-- <p>{{'blogList[0].title | uppercase'}}</p>
+                            <p>{{'blogList[0].shortDescription '}}</p> -->
                             <nav style="margin: auto">
                                 <ul class="pagination  pg-amber justify-content-center" *ngIf="pager?.pages && pager?.pages?.length">
                                     <li class="page-item" [ngClass]="{disabled:pager?.currentPage === 1}">
@@ -191,10 +190,6 @@
                 </aside>
                 <!-- end right side-bar  -->
             </div>
-
-
-
-
         </div>
     </section>
     <!-- --------------Glass-container----------------------------- -->

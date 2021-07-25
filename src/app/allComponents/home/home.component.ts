@@ -34,29 +34,36 @@ export class HomeComponent implements OnInit {
   public pageSize = 10;
   public isLoading = true;
   public pager: any = {};
+  pagedItems: any;
 
   constructor(private router: Router, private modalService: BsModalService,
     private blogService: BlogServiceService, public domSan: DomSanitizer) { }
 
 
   ngOnInit(): void {
-    this.getHomeData();
+    this.getHomeData(1);
   }
 
-  public getHomeData() {
-    let query = { pageNo: this.pageNo, pageSize: this.pageSize }
-    this.blogService.allHomeData(query).subscribe((res: any) => {
+  public getHomeData(page) {
+    let query = { pageNo: page, pageSize: this.pageSize }
+    this.pager = this.blogService.allHomeData(query).subscribe((res: any) => {
       console.log('posted AllHomeData array --- ', res);
+      this.blogList = [];
       this.blogList = res.data;
+      console.log('BlogList',this.blogList[0].title);
     });
   }
 
   public setHomeData(page: number) {
     this.pageNo = page;
     this.isLoading = true;
+    let query = { pageNo: this.pageNo, pageSize: this.pageSize }
+    this.pager = this.blogService.allHomeData(query);
+    this.pagedItems = this.blogList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+
     // this.getAllOrders().then((value: any) => {
     //   this.isLoading = false;
-    //   // this.pager = this.pagerService.getPager(Number(value.count), page, this.pageSize);
+      // this.pager = this.pagerService.getPager(Number(value.count), page, this.pageSize);
     //   // this.allOrdersDATA = value.orders;
     //   console.log('pagedItems :: ', value);
     // }).catch(err => { console.log(err) });
