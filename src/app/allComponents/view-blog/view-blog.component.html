@@ -1,25 +1,41 @@
-<div class="container-fluid">
-    <div class="row mt-2">
+<div class="container-fluid writesec">
+    <div class="row heading-row d-flex justify-content-center align-items-center">
+        <div class="col-lg-4 col-md-4 offset-lg-1 offset-md-1 offset-sm-1 col-sm-5">
+            <button class="btn btn-info rounded mt-4" [routerLink]="['/home']"> <i class="fa fa-left-arrow"></i> Back To Home</button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-5 heading">
+            <h1 [routerLink]="['/home']">My<span style="color: blueviolet;">Thoughts</span></h1>
+        </div>
+    </div>
+    <!-- <div class="row mt-2">
         <div class="col-lg-2 col-md-2 col-sm-3 offset-lg-1 offset-md-1 offset-sm-1">
             <button class="btn btn-info" [routerLink]="['/home']">Back To Home</button>
         </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1">
-            <div class="container-fluid">
+    </div> -->
+    <div class="row mt-2 d-flex justify-content-center align-items-center">
+        <div class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 blogcontent">
+            <div class="container-fluid box p-4">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h1>{{blogData?.title}}</h1>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <div class="col-md-12">
+                        <div class="post-img">
+                            <div>
+                                <img [src]="domSan.bypassSecurityTrustResourceUrl(blogData?.timage)" class="img rounded mx-auto d-block" alt="..." height="400px" width="800px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
                     <div class="col-md-10">
                         Image
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
-                    <div class="col-md-10">
-                        {{blogData?.title}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-10" [innerHTML]="blogData?.content">
-
+                    <div class="col-md-12 d-flex flex-column align-items-center" [innerHTML]="blogData?.content">
                     </div>
                 </div>
             </div>

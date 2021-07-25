@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 
@@ -12,7 +13,7 @@ export class ViewBlogComponent implements OnInit {
   private blogId: string = '';
   public blogData: any = {}
 
-  constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogServiceService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogServiceService,public domSan: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getIDByParams();
@@ -36,6 +37,8 @@ export class ViewBlogComponent implements OnInit {
       console.log("blog data :: ", res);
       if (res.success) {
         this.blogData = res.blogData;
+        console.log(this.blogData.content.image);
+        
       }
     });
   }

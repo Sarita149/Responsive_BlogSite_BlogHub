@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     let query = { pageNo: page, pageSize: this.pageSize }
     this.pager = this.blogService.allHomeData(query).subscribe((res: any) => {
       console.log('posted AllHomeData array --- ', res);
-      this.blogList = [];
+      this.blogList = []
       this.blogList = res.data;
       console.log('BlogList',this.blogList[0].title);
     });
