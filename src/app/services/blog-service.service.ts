@@ -10,12 +10,12 @@ export class BlogServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public allblogs(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/allblogs');
+  public allblogs(query): Observable<any> {
+    return this.http.post('http://localhost:3000/api/allblogs',query);
   }
 
-  public allHomeData(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/allHomeData');
+  public allHomeData(query): Observable<any> {
+    return this.http.post('http://localhost:3000/api/allHomeData', query);
   }
 
   public addblog(blog: any): Observable<any> {

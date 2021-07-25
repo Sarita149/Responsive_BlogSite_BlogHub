@@ -4,10 +4,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSummernoteModule } from 'ngx-summernote';
-// import { MatDividerModule } from '@angular/material/divider';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +18,7 @@ import { CategoryComponent } from './allComponents/category/category.component';
 import { InterceptorsInterceptor } from './interceptors.interceptor';
 import { SignupComponent } from './allComponents/signup/signup.component';
 import { ViewBlogComponent } from './allComponents/view-blog/view-blog.component';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -42,15 +39,15 @@ import { AuthGuardService } from './auth-guard.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // BrowserAnimationsModule,
-    // MatDividerModule,
+    FormsModule,
+    BrowserAnimationsModule,
     ModalModule.forRoot()
   ],
   providers: [
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : InterceptorsInterceptor,
-      multi : true
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorsInterceptor,
+      multi: true
     },
     AuthGuardService
   ],

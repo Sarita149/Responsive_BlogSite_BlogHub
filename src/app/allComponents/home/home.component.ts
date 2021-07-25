@@ -12,39 +12,58 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  showME: boolean = false;
+  public showME: boolean = false;
+  public modalRef: BsModalRef;
+  public photoUpload: BsModalRef;
+  public writeblogModalRef: BsModalRef;
+  public quotUploads: BsModalRef<Object>;
+  public linksUpload: BsModalRef<Object>;
+  public doChat: BsModalRef<Object>;
+  public audioUpload: BsModalRef<Object>;
+  public vediosUploads: BsModalRef<Object>;
 
-  modalRef: BsModalRef;
-  photoUpload: BsModalRef;
-  writeblogModalRef: BsModalRef;
-  quotUploads: BsModalRef<Object>;
-  linksUpload: BsModalRef<Object>;
-  doChat: BsModalRef<Object>;
-  audioUpload: BsModalRef<Object>;
-  vediosUploads: BsModalRef<Object>;
 
-  // customBtn:boolean=false;
-  constructor(private router: Router, private modalService: BsModalService, private blogService: BlogServiceService, public domSan: DomSanitizer) { }
   public blogList: any = [];
+  public inputvalue: String = "Add a caption, if you like "
+  public url = "";
+  public file: any = '';
+  public filename: any
+  public displayCnclBtn: boolean = false;
+
+  public pageNo = 1;
+  public pageSize = 10;
+  public isLoading = true;
+  public pager: any = {};
+
+  constructor(private router: Router, private modalService: BsModalService,
+    private blogService: BlogServiceService, public domSan: DomSanitizer) { }
+
 
   ngOnInit(): void {
     this.getHomeData();
-
   }
 
-  getHomeData() {
-    this.blogService.allHomeData().subscribe((res: any) => {
+  public getHomeData() {
+    let query = { pageNo: this.pageNo, pageSize: this.pageSize }
+    this.blogService.allHomeData(query).subscribe((res: any) => {
       console.log('posted AllHomeData array --- ', res);
       this.blogList = res.data;
     });
   }
 
-  inputvalue: String = "Add a caption, if you like "
-  url = "";
-  file: any = '';
-  filename: any
-  displayCnclBtn: boolean = false;
-  onDeselect(value) {
+  public setHomeData(page: number) {
+    this.pageNo = page;
+    this.isLoading = true;
+    // this.getAllOrders().then((value: any) => {
+    //   this.isLoading = false;
+    //   // this.pager = this.pagerService.getPager(Number(value.count), page, this.pageSize);
+    //   // this.allOrdersDATA = value.orders;
+    //   console.log('pagedItems :: ', value);
+    // }).catch(err => { console.log(err) });
+  }
+
+
+  public onDeselect(value) {
     this.url = '';
     this.file = '';
     this.filename = '';
@@ -53,7 +72,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  fileSelect(evt) {
+  public fileSelect(evt) {
     console.log('event :: ', evt);
     this.file = evt.target.files[0];
     this.filename = evt.target.files[0].name;
@@ -72,10 +91,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  toggle() {
+  public toggle() {
     this.showME = !this.showME
   }
-  openModal(template: TemplateRef<any>, name = '') {
+
+  public openModal(template: TemplateRef<any>, name = '') {
     console.log('template ref :: ', template);
     if (name == 'text') {
       this.writeblogModalRef = this.modalService.show(template);
@@ -104,25 +124,4 @@ export class HomeComponent implements OnInit {
 
   }
 
-  bloglist = [
-    {
-      'id': 1, 'title': 'Google Core Web Vitals to Be Used as Ranking Signals & This Week’s Digital Marketing News [PODCAST]',
-      'description': 'Google announced new page experience ranking signals for Search that will go into effect in May 2021.This update will combine Core Web vitals with existing search signals.Facebook Ads Accounts Disabled Advertisers around the world reported having their Facebook Ads account disabled on November 5.Facebook product manager Rob Leathern tweeted that this was due to a technical issue and that the mistakenly disabled accounts had been reactivated.',
-      'image': '../../../assets/technology.jpg'
-    },
-    {
-      'id': 2, 'title': 'Apple Cider Cupcakes with Brown Sugar Cinnamon Buttercream',
-      'description': 'Moist and flavorful recipe for Apple Cider Cupcakes made from scratch with Brown Sugar Cinnamon Buttercream Frosting makes for a mouthwatering fall dessert!',
-      'image': '../../../assets/food2.jpg'
-    },
-    {
-      'id': 3, 'title': 'Fashion should be a form of escapism, and not a form of imprisonment',
-      'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius odio adipisci sequi voluptatem iste eligendi, aliquam ut possimus laudantium atque quae tempore quam facilis explicabo officiis, soluta sit excepturi ducimus. Distinctio harum minus maiores necessitatibus earum tenetur voluptas cupiditate nobis.',
-      'image': '../../../assets/fasion.jpg'
-    },
-  ]
 }
-function clicked() {
-  throw new Error('Function not implemented.');
-}
-
