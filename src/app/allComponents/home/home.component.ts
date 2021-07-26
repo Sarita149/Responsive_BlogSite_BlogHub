@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { HelperService } from 'src/app/services/helper.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PagerService } from 'src/app/services/pager.service';
@@ -70,7 +68,6 @@ export class HomeComponent implements OnInit {
       console.log('pagedItems :: ', this.blogList);
     }).catch(err => { console.log(err) });
   }
-
 
   public onDeselect(value) {
     this.url = '';

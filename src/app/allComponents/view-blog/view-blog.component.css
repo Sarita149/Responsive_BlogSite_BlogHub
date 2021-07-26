@@ -1,0 +1,29 @@
+.writesec {
+    width: 100%;
+    background: green;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(229, 220, 238);
+}
+.writesec .heading-row .heading h1 {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    cursor: pointer;
+}
+.writesec .blogcontent {
+    /* background: chocolate; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5rem;
+}
+
+.writesec .blogcontent .box {
+    background: #fff;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
