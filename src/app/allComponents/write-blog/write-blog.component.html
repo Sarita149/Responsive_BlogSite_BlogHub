@@ -1,3 +1,8 @@
+<!-- <div class="row" style="height: 5.5rem;background-color: rgb(229, 220, 238);">
+    <div class="col-md-12"></div>
+</div> -->
+
+
 <section class="writesec">
 
     <div class="row heading-row">
@@ -31,7 +36,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+                    <button style="float: right;" class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</button>
 
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -43,10 +48,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label for="title" style="font-size: 20px;font-weight: 700;">Category</label>
-                                <input formControlName="category" type="text" class="form-control" id="category" placeholder="Add category here...">
+                                <label for="cat" style="font-size: 20px;font-weight: 700;">Category</label>
+                                <select class="custom-select" formControlName="category" name="cat" id="cat">
+                                    <option *ngFor="let cat of catList" [value]="cat?._id">{{cat?.categoryName}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>

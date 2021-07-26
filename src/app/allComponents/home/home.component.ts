@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { HelperService } from 'src/app/services/helper.service';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PagerService } from 'src/app/services/pager.service';
 
 @Component({
   selector: 'app-home',
@@ -34,41 +33,41 @@ export class HomeComponent implements OnInit {
   public pageSize = 10;
   public isLoading = true;
   public pager: any = {};
-  pagedItems: any;
 
-  constructor(private router: Router, private modalService: BsModalService,
+  constructor(private pagerService: PagerService, private modalService: BsModalService,
     private blogService: BlogServiceService, public domSan: DomSanitizer) { }
 
 
   ngOnInit(): void {
-    this.getHomeData(1);
+    this.setHomeData(1);
   }
 
-  public getHomeData(page) {
-    let query = { pageNo: page, pageSize: this.pageSize }
-    this.pager = this.blogService.allHomeData(query).subscribe((res: any) => {
-      console.log('posted AllHomeData array --- ', res);
-      this.blogList = []
-      this.blogList = res.data;
-      console.log('BlogList',this.blogList[0].title);
+  public getHomeData() {
+    let query = { pageNo: this.pageNo, pageSize: this.pageSize }
+
+    return new Promise((resolve, reject) => {
+      this.blogService.allHomeData(query).subscribe((res: any) => {
+        console.log('AllHomeData ::  ', res);
+        if (res.success) {
+          resolve(res);
+        } else {
+          reject(res)
+        }
+      });
     });
+
   }
 
   public setHomeData(page: number) {
     this.pageNo = page;
     this.isLoading = true;
-    let query = { pageNo: this.pageNo, pageSize: this.pageSize }
-    this.pager = this.blogService.allHomeData(query);
-    this.pagedItems = this.blogList.slice(this.pager.startIndex, this.pager.endIndex + 1);
-
-    // this.getAllOrders().then((value: any) => {
-    //   this.isLoading = false;
-      // this.pager = this.pagerService.getPager(Number(value.count), page, this.pageSize);
-    //   // this.allOrdersDATA = value.orders;
-    //   console.log('pagedItems :: ', value);
-    // }).catch(err => { console.log(err) });
+    this.getHomeData().then((value: any) => {
+      this.isLoading = false;
+      this.pager = this.pagerService.getPager(Number(value.count), page, this.pageSize);
+      this.blogList = value.data;
+      console.log('pagedItems :: ', this.blogList);
+    }).catch(err => { console.log(err) });
   }
-
 
   public onDeselect(value) {
     this.url = '';

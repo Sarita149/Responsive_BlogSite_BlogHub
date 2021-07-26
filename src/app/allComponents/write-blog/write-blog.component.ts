@@ -37,11 +37,11 @@ export class WriteBlogComponent implements OnInit {
   public imageError: any;
   public cardImageBase64: any;
   public isImageSaved: boolean;
-
-
+  public catList: any = [];
 
   ngOnInit(): void {
-    this.initializeBlogForm()
+    this.initializeBlogForm();
+    this.getCategoryList();
   }
 
 
@@ -69,9 +69,10 @@ export class WriteBlogComponent implements OnInit {
     let shortDescription = plainText.slice(0, 150);
 
     formValue["timage"] = this.cardImageBase64;
-    formValue["category"] = "tech";
     formValue["views"] = 0;
     formValue["shortDescription"] = shortDescription;
+
+    // console.log("form data :: ", formValue);
 
     if (formValue.title && formValue.description && formValue.category) {
       this.blogService.addblog(formValue).subscribe((res) => {
@@ -151,5 +152,12 @@ export class WriteBlogComponent implements OnInit {
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  public getCategoryList() {
+    this.blogService.getCategoryListWithoutImage().subscribe((res: any) => {
+      console.log("cat list :: ", res);
+      this.catList = res.data;
+    });
   }
 }
